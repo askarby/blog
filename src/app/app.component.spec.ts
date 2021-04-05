@@ -1,33 +1,39 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
+
 import { AppComponent } from './app.component';
+import { MockComponents } from 'ng-mocks';
+import { NavigationBarComponent } from './shared/shell/navigation-bar/navigation-bar.component';
+import { SlideOutMenuComponent } from './shared/shell/slide-out-menu/slide-out-menu.component';
+import { RouterOutlet } from '@angular/router';
+import { ENVIRONMENT_TOKEN } from './shared/di.tokens';
+import { environment } from '../environments/environment';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent],
-    }).compileComponents();
+  const createComponent = createRoutingFactory({
+    component: AppComponent,
+    declarations: [
+      MockComponents(
+        RouterOutlet,
+        NavigationBarComponent,
+        SlideOutMenuComponent
+      ),
+    ],
+    providers: [
+      {
+        provide: ENVIRONMENT_TOKEN,
+        useValue: environment,
+      },
+    ],
+  });
+  let spectator: SpectatorRouting<AppComponent>;
+  let component: AppComponent;
+
+  beforeEach(() => {
+    spectator = createComponent();
+    component = spectator.component;
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'blog'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('blog');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'blog app is running!'
-    );
+  it('should be created', () => {
+    expect(component).toBeTruthy();
   });
 });

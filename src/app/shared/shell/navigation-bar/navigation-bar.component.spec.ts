@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
 
 import { NavigationBarComponent } from './navigation-bar.component';
+import { MockComponents } from 'ng-mocks';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 describe('NavigationBarComponent', () => {
-  let component: NavigationBarComponent;
-  let fixture: ComponentFixture<NavigationBarComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NavigationBarComponent ]
-    })
-    .compileComponents();
+  const createComponent = createRoutingFactory({
+    component: NavigationBarComponent,
+    declarations: [
+      MockComponents(FaIconComponent)
+    ]
   });
+  let spectator: SpectatorRouting<NavigationBarComponent>;
+  let component: NavigationBarComponent;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavigationBarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
+    component = spectator.component;
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

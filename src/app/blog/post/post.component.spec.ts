@@ -1,24 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { createRoutingFactory, mockProvider, SpectatorRouting } from '@ngneat/spectator/jest';
 
 import { PostComponent } from './post.component';
+import { MockComponents } from 'ng-mocks';
+import { ScullyContentComponent, ScullyRoutesService } from '@scullyio/ng-lib';
+import { EMPTY } from 'rxjs';
 
 describe('PostComponent', () => {
+  const createComponent = createRoutingFactory({
+    component: PostComponent,
+    declarations: [MockComponents(ScullyContentComponent)],
+    providers: [
+      mockProvider(ScullyRoutesService, {
+        available$: EMPTY,
+      })
+    ]
+  });
+  let spectator: SpectatorRouting<PostComponent>;
   let component: PostComponent;
-  let fixture: ComponentFixture<PostComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [PostComponent],
-    }).compileComponents();
-  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
+    component = spectator.component;
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

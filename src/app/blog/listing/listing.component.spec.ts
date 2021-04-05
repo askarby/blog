@@ -1,25 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
 
 import { ListingComponent } from './listing.component';
 
 describe('ListingComponent', () => {
-  let component: ListingComponent;
-  let fixture: ComponentFixture<ListingComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ListingComponent ]
-    })
-    .compileComponents();
+  const createComponent = createRoutingFactory({
+    component: ListingComponent,
   });
+
+  let spectator: SpectatorRouting<ListingComponent>;
+  let component: ListingComponent;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
+    component = spectator.component;
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

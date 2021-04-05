@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
 
 import { SlideOutMenuComponent } from './slide-out-menu.component';
+import { MockComponents } from 'ng-mocks';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 
 describe('SlideOutMenuComponent', () => {
-  let component: SlideOutMenuComponent;
-  let fixture: ComponentFixture<SlideOutMenuComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SlideOutMenuComponent ]
-    })
-    .compileComponents();
+  const createComponent = createRoutingFactory({
+    component: SlideOutMenuComponent,
+    declarations: [
+      MockComponents(FaIconComponent)
+    ]
   });
+  let spectator: SpectatorRouting<SlideOutMenuComponent>;
+  let component: SlideOutMenuComponent;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SlideOutMenuComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = createComponent();
+    component = spectator.component;
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });
