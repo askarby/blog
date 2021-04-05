@@ -33,4 +33,4 @@ export const sharedEnvironment: Omit<Environment, 'production'> = {
       stackoverflow: 'https://stackoverflow.com/users/1016516/anders',
       github: 'https://github.com/askarby',
   },
-}
+};

@@ -14,11 +14,12 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
 
-declare var Prism: any;
+// eslint-disable-next-line @typescript-eslint/naming-convention
+declare const Prism: any;
 
 @Injectable({ providedIn: 'root' })
 export class HighlightService {
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Record<string, unknown>) {}
 
   highlightAll(): void {
     if (isPlatformBrowser(this.platformId)) {
