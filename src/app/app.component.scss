@@ -1,0 +1,68 @@
+@use '../scss/shared/effects';
+@use '../scss/shared/colors';
+@use '../scss/shared/include-media' as responsive;
+
+aside.side-nav {
+  // Positioning
+  position: fixed;
+  left: -15rem;
+  top: 0;
+  bottom: 0;
+  width: 14rem;
+  z-index: 20;
+
+  // Layout
+  display: block;
+
+  // Colors and fonts
+  background-color: #eeeeee;
+  box-shadow: 0.25rem 0 1rem 0 #242424;
+
+  // Animation
+  transition: left 0.2s ease-in-out;
+
+  &.shown {
+    left: 0;
+    border-right: 1px solid #141414;
+  }
+
+  @include responsive.media('screen', '>=tablet') {
+    display: none;
+  }
+}
+
+fa-icon {
+  display: block;
+
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.headline {
+  // Layout
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0.938rem;
+
+  // Colors and font
+  background-color: #141414;
+  color: white;
+  font-size: 2rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+main {
+  position: relative;
+  top: 3.5rem;
+  background: #fff;
+
+  @media only screen and (min-width: 40rem) {
+    top: 4rem;
+  }
+}

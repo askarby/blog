@@ -1,0 +1,68 @@
+@use '../../../../scss/shared/effects';
+@use '../../../../scss/shared/colors';
+@use '../../../../scss/shared/include-media' as responsive;
+
+:host {
+  // Positioning
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  // Layout
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0.938rem;
+
+  // Colors and font
+  background-color: #141414;
+  color: white;
+  font-size: 2rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+  @include responsive.media('screen', '>=tablet') {
+    padding: 0.9rem 1rem;
+
+    fa-icon.menu-toggle {
+      display: none;
+    }
+
+    nav {
+      display: inline-block;
+
+      li {
+        display: inline;
+
+        & + li {
+          margin-left: 1.5rem;
+        }
+      }
+
+      a:hover {
+        @include effects.text-outline(colors.clr(blog));
+      }
+    }
+  }
+}
+
+fa-icon {
+  display: block;
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  &:hover {
+    color: wheat;
+  }
+}

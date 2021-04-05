@@ -1,0 +1,22 @@
+// Include reset
+@use "./partials/reset";
+
+// Fonts sand colors
+@use "./partials/fonts";
+@use "./shared/colors";
+
+// Prism
+@use '~prismjs/plugins/toolbar/prism-toolbar';
+@use './prismjs/prism-skarby';
+
+// Basic setup
+:root {
+  // Theme colors (sections of the site)
+  --primary: colors.clr(primary);
+  --blog: colors.clr(blog);
+  --about: colors.clr(about);
+  --presentations: colors.clr(presentations);
+
+  // Configure current (default look of site), fallback!
+  --current: colors.clr(primary);
+}

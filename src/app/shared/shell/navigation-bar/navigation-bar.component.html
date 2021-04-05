@@ -1,0 +1,21 @@
+<fa-icon
+  class="menu-toggle"
+  [icon]="icons.menu"
+  (click)="menuTriggerClicked.emit()"
+></fa-icon>
+
+<a class="logo" [routerLink]="['/']">
+  <h1>skarby.info</h1>
+</a>
+
+<nav>
+  <ul>
+    <li><a routerLink="/blog">Blog</a></li>
+    <li>
+      <a href="//presentations.skarby.info" target="_blank">Presentations</a>
+    </li>
+    <li><a routerLink="/about">About</a></li>
+  </ul>
+</nav>
+
+<fa-icon [icon]="icons.search"></fa-icon>

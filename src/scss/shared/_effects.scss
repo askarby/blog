@@ -1,0 +1,7 @@
+@mixin text-outline($color, $width: 1px) {
+  text-shadow:
+    -$width -$width 0 $color,
+    $width -$width 0 $color,
+    -$width $width 0 $color,
+    $width $width 0 $color;
+}

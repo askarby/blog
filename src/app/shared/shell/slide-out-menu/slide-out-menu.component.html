@@ -1,0 +1,15 @@
+<aside class="side-nav" [class.shown]="menuShown">
+  <section class="headline">
+    <p>Menu</p>
+    <fa-icon [icon]="icons.close" (click)="closeMenu.emit()"></fa-icon>
+  </section>
+  <nav>
+    <ul>
+      <li><a routerLink="/blog">Blog</a></li>
+      <li>
+        <a href="//presentations.skarby.info" target="_blank">Presentations</a>
+      </li>
+      <li><a routerLink="/about">About</a></li>
+    </ul>
+  </nav>
+</aside>

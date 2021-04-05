@@ -1,0 +1,127 @@
+@use '../../../scss/shared/include-media' as responsive;
+
+article {
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+  padding-bottom: 2rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  blockquote,
+  code,
+  ul,
+  ol {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+
+    @include responsive.media('screen', '>=tablet') {
+      padding: 0;
+    }
+  }
+
+  a {
+    color: #00e;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    letter-spacing: .05rem;
+  }
+
+  blockquote {
+    float: none;
+    display: block;
+    border-left: .313rem solid #333;
+    padding: 0 1.875rem;
+    margin: 3.125rem auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+
+    @include responsive.media('screen', '>=tablet') {
+      font-size: 3rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+
+    @include responsive.media('screen', '>=tablet') {
+      font-size: 2.35rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+
+    @include responsive.media('screen', '>=tablet') {
+      font-size: 1.7rem;
+    }
+  }
+
+  // Inline code-snippet
+  :not(pre) >code {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+    border: 1px solid #aeaeae;
+    border-radius: 0.3rem;
+    padding: 0 0.25rem;
+  }
+
+  // Highlighted code-block
+  pre > code {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.2rem;
+  }
+
+  *,
+  :not(li) + *,
+  :not(li) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.progress-bar {
+  // Positioning
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  // Layout
+  display: block;
+  width: 100%;
+  padding: 0.625rem;
+
+  // Colors and font
+  border-top: 1px solid #f2f2f2;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+
+  // Animation
+  transition: bottom 0.5s;
+}

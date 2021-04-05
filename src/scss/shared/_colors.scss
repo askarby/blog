@@ -1,0 +1,42 @@
+$primary-color: #EE6352;
+$blog: #3F78C9;
+$about: #49C4A3;
+$presentations: #FFAC83;
+$white: #FFF;
+$black: #444A51;
+
+$lighten: 5;
+$darken: 25;
+
+$colors: (
+  primary: (
+    base: $primary-color,
+    light: lighten($primary-color, $lighten),
+    dark: darken($primary-color, $darken),
+  ),
+  blog: (
+    base: $blog,
+    light: lighten($blog, $lighten),
+    dark: darken($blog, $darken),
+  ),
+  about: (
+    base: $about,
+    light: lighten($about, $lighten),
+    dark: darken($about, $darken),
+  ),
+  presentations: (
+    base: $presentations,
+    light: lighten($presentations, $lighten),
+    dark: darken($presentations, $darken),
+  ),
+  neutral: (
+    base: #69777F,
+    light: #B2CAD8,
+    dark: $black,
+  ),
+);
+
+@function clr($base, $shade: base) {
+  $color: map-get(map-get($colors, $base), $shade);
+  @return $color;
+}

@@ -1,0 +1,7 @@
+<article>
+  <scully-content></scully-content>
+</article>
+
+<div *ngIf="current$ | async as post" class="progress-bar">
+  {{ post.title }}
+</div>
