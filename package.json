@@ -8,7 +8,7 @@
     "build:prod": "npm run build -- --prod",
     "clean": "rm -rf dist && rm -f src/assets/scully-routes.json",
     "test": "ng test",
-    "test:serve": "npm run test --watch=true",
+    "test:serve": "npm run test -- --watch-all",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "scully": "npx scully --",
@@ -63,7 +63,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm test --watch=false"
+      "pre-commit": "lint-staged && npm test"
     }
   },
   "lint-staged": {
