@@ -5,8 +5,6 @@ import {
   faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { Environment } from '../../../../environments/environment.model';
-import { ENVIRONMENT_TOKEN } from '../../di.tokens';
 import { ExternalLink, InternalLink } from '../navigation.model';
 
 @Component({
@@ -15,6 +13,9 @@ import { ExternalLink, InternalLink } from '../navigation.model';
   styleUrls: ['./navigation-bar.component.scss'],
 })
 export class NavigationBarComponent {
+  @Input()
+  siteName!: string;
+
   @Input()
   menuItems!: (InternalLink | ExternalLink)[];
 

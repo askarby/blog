@@ -1,4 +1,5 @@
 <app-navigation-bar
+  [siteName]="environment.site.name"
   [menuItems]="environment.links"
   (menuTriggerClicked)="toggleMenu()"
 ></app-navigation-bar>
