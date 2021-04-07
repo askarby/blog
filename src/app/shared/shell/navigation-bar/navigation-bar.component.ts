@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import {
   faHamburger,
   faSearch,
@@ -11,6 +17,7 @@ import { ExternalLink, InternalLink } from '../navigation.model';
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
   styleUrls: ['./navigation-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavigationBarComponent {
   @Input()

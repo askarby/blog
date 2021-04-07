@@ -3,19 +3,24 @@ import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
 import { SlideOutMenuComponent } from './slide-out-menu.component';
 import { MockComponents } from 'ng-mocks';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { NavigationListComponent } from '../navigation-list/navigation-list.component';
+import { environment } from '../../../../environments/environment';
 
 describe('SlideOutMenuComponent', () => {
   const createComponent = createRoutingFactory({
     component: SlideOutMenuComponent,
-    declarations: [
-      MockComponents(FaIconComponent)
-    ]
+    declarations: [MockComponents(FaIconComponent, NavigationListComponent)],
   });
   let spectator: SpectatorRouting<SlideOutMenuComponent>;
   let component: SlideOutMenuComponent;
 
   beforeEach(() => {
-    spectator = createComponent();
+    spectator = createComponent({
+      props: {
+        socialMedia: environment.social,
+        menuItems: environment.links,
+      },
+    });
     component = spectator.component;
   });
 

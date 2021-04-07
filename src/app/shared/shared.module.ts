@@ -5,10 +5,15 @@ import { SlideOutMenuComponent } from './shell/slide-out-menu/slide-out-menu.com
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { NavigationListComponent } from './shell/navigation-list/navigation-list.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ScullyLibModule, FontAwesomeModule],
-  declarations: [NavigationBarComponent, SlideOutMenuComponent],
+  declarations: [
+    NavigationBarComponent,
+    SlideOutMenuComponent,
+    NavigationListComponent,
+  ],
   exports: [NavigationBarComponent, SlideOutMenuComponent],
 })
 export class SharedModule {}

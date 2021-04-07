@@ -27,32 +27,19 @@
     text-decoration: none;
   }
 
-  nav {
+  app-navigation-list {
     display: none;
   }
 
-  @include responsive.media('screen', '>=tablet') {
+  @include responsive.media("screen", ">=tablet") {
     padding: 0.9rem 1rem;
 
     fa-icon.menu-toggle {
       display: none;
     }
 
-    nav {
+    app-navigation-list {
       display: inline-block;
-      font-size: 1.5rem;
-
-      li {
-        display: inline;
-
-        & + li {
-          margin-left: 1.5rem;
-        }
-      }
-
-      a:hover {
-        @include effects.text-outline(colors.clr(blog));
-      }
     }
   }
 }

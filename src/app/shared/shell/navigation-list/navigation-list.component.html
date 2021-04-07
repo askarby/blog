@@ -1,0 +1,23 @@
+<!-- Navigation items -->
+<nav>
+  <ul>
+    <li *ngFor="let item of menuItems" [ngClass]="item.theme">
+      <ng-container
+        *ngTemplateOutlet="
+          item.type === 'internal' ? internalLink : externalLink;
+          context: { $implicit: item }
+        "
+      >
+      </ng-container>
+    </li>
+  </ul>
+</nav>
+
+<!-- Templates for navigation items -->
+<ng-template #internalLink let-item>
+  <a [routerLink]="item.urlTree">{{ item.title }}</a>
+</ng-template>
+
+<ng-template #externalLink let-item>
+  <a [href]="item.url" target="_blank">{{ item.title }}</a>
+</ng-template>

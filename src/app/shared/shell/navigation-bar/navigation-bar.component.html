@@ -1,21 +1,17 @@
+<!-- Menu-trigger, on small devices -->
 <fa-icon
   class="menu-toggle"
   [icon]="icons.menu"
   (click)="menuTriggerClicked.emit()"
 ></fa-icon>
 
+<!-- Logo (navigation to / - home) -->
 <a class="logo" [routerLink]="['/']">
-  <h1>{{siteName}}</h1>
+  <h1>{{ siteName }}</h1>
 </a>
 
-<nav>
-  <ul>
-    <li><a routerLink="/blog">Blog</a></li>
-    <li>
-      <a href="//presentations.skarby.info" target="_blank">Presentations</a>
-    </li>
-    <li><a routerLink="/about">About</a></li>
-  </ul>
-</nav>
+<!-- Navigation items -->
+<app-navigation-list [menuItems]="menuItems"></app-navigation-list>
 
+<!-- Search-trigger -->
 <fa-icon [icon]="icons.search"></fa-icon>

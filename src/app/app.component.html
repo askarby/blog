@@ -5,7 +5,9 @@
 ></app-navigation-bar>
 
 <app-slide-out-menu
+  [menuItems]="environment.links"
   [menuShown]="menuShown"
+  [socialMedia]="environment.social"
   (closeMenu)="toggleMenu()"
 ></app-slide-out-menu>
 

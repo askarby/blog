@@ -19,8 +19,12 @@ article {
     margin: 0 auto;
     padding: 0 0.5rem;
 
-    @include responsive.media('screen', '>=tablet') {
+    @include responsive.media("screen", ">=tablet") {
       padding: 0;
+    }
+
+    @include responsive.media("screen", ">=desktop") {
+      max-width: 55rem;
     }
   }
 
@@ -34,21 +38,26 @@ article {
   }
 
   p {
-    letter-spacing: .05rem;
+    letter-spacing: 0.05rem;
   }
 
   blockquote {
     float: none;
     display: block;
-    border-left: .313rem solid #333;
+    border-left: 0.313rem solid #333;
     padding: 0 1.875rem;
     margin: 3.125rem auto;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
   }
 
   h1 {
     font-size: 2rem;
 
-    @include responsive.media('screen', '>=tablet') {
+    @include responsive.media("screen", ">=tablet") {
       font-size: 3rem;
     }
   }
@@ -56,7 +65,7 @@ article {
   h2 {
     font-size: 1.5rem;
 
-    @include responsive.media('screen', '>=tablet') {
+    @include responsive.media("screen", ">=tablet") {
       font-size: 2.35rem;
     }
   }
@@ -64,24 +73,30 @@ article {
   h3 {
     font-size: 1.25rem;
 
-    @include responsive.media('screen', '>=tablet') {
+    @include responsive.media("screen", ">=tablet") {
       font-size: 1.7rem;
     }
   }
 
   // Inline code-snippet
-  :not(pre) >code {
+  :not(pre) > code {
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 0.9rem;
 
-    border: 1px solid #aeaeae;
-    border-radius: 0.3rem;
-    padding: 0 0.25rem;
+    word-wrap: break-word;
+    padding: 0.175rem 0.3rem;
+
+    color: #bf616a;
+    background: #f2f2f2;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
   }
 
   // Highlighted code-block
   pre > code {
     display: block;
     margin-bottom: 0;
+    overflow-y: auto;
   }
 
   ul {

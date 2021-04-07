@@ -3,13 +3,12 @@ import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
 import { NavigationBarComponent } from './navigation-bar.component';
 import { MockComponents } from 'ng-mocks';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { NavigationListComponent } from '../navigation-list/navigation-list.component';
 
 describe('NavigationBarComponent', () => {
   const createComponent = createRoutingFactory({
     component: NavigationBarComponent,
-    declarations: [
-      MockComponents(FaIconComponent)
-    ]
+    declarations: [MockComponents(FaIconComponent, NavigationListComponent)],
   });
   let spectator: SpectatorRouting<NavigationBarComponent>;
   let component: NavigationBarComponent;

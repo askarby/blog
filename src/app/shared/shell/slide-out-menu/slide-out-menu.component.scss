@@ -11,9 +11,6 @@
   width: 14rem;
   z-index: 20;
 
-  // Layout
-  display: block;
-
   // Colors and fonts
   background-color: #eeeeee;
   box-shadow: 0.25rem 0 1rem 0 #242424;
@@ -26,43 +23,80 @@
     border-right: 1px solid #141414;
   }
 
-  @include responsive.media('screen', '>=tablet') {
+  @include responsive.media("screen", ">=tablet") {
     display: none;
   }
 }
 
-fa-icon {
-  display: block;
-
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.headline {
+aside {
   // Layout
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.625rem 0.938rem;
+  height: 100%;
 
-  // Colors and font
-  background-color: #141414;
-  color: white;
-  font-size: 2rem;
+  header {
+    // Layout
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.625rem 0.938rem;
 
-  a {
+    // Colors and font
+    background-color: #141414;
     color: white;
-    text-decoration: none;
+    font-size: 2rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    fa-icon {
+      display: block;
+
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
   }
-}
 
-main {
-  position: relative;
-  top: 3.5rem;
-  background: #fff;
+  app-navigation-list {
+    flex-grow: 1;
+  }
 
-  @media only screen and (min-width: 40rem) {
-    top: 4rem;
+  footer {
+    // Layout
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0.5rem 0;
+
+    fa-icon {
+      display: inline-block;
+
+      font-size: 2rem;
+      line-height: 2rem;
+
+      &.facebook {
+        color: #3b5999;
+      }
+
+      &.twitter {
+        color: #55acee;
+      }
+
+      &.linkedin {
+        color: #0077b5;
+      }
+
+      &.stackoverflow {
+        color: #f48024;
+      }
+
+      &.github {
+        color: #000;
+      }
+    }
   }
 }

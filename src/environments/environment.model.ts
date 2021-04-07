@@ -1,4 +1,7 @@
-import { ExternalLink, InternalLink } from '../app/shared/shell/navigation.model';
+import {
+  ExternalLink,
+  InternalLink,
+} from '../app/shared/shell/navigation.model';
 
 export interface Environment {
   production: boolean;
@@ -9,11 +12,13 @@ export interface Environment {
 
   links: (InternalLink | ExternalLink)[];
 
-  social: {
-    facebook: string;
-    twitter: string;
-    linkedin: string;
-    stackoverflow: string;
-    github: string;
-  };
+  social: SocialMedia;
+}
+
+export interface SocialMedia {
+  facebook: string;
+  twitter: string;
+  linkedin: string;
+  stackoverflow: string;
+  github: string;
 }
