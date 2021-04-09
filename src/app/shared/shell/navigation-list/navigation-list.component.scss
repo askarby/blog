@@ -1,6 +1,6 @@
-@use '../../../../scss/shared/effects';
-@use '../../../../scss/shared/colors';
-@use '../../../../scss/shared/include-media' as responsive;
+@use 'effects';
+@use 'colors';
+@use 'include-media' as responsive;
 
 :host-context(app-navigation-bar) {
   a {

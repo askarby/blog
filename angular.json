@@ -37,6 +37,9 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/scss/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/scss/shared"]
+            },
             "scripts": []
           },
           "configurations": {
