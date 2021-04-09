@@ -1,3 +1,10 @@
+<header>
+  <img [src]="(current$ | async)?.image" />
+  <pre>
+    {{ current$ | async | json }}
+  </pre>
+</header>
+
 <article>
   <scully-content></scully-content>
 </article>

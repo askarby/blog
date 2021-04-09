@@ -1,4 +1,15 @@
-@use '../../../scss/shared/include-media' as responsive;
+@use 'include-media' as responsive;
+
+header {
+  img {
+    object-fit: cover;
+
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    padding: 1rem 0;
+  }
+}
 
 article {
   font-size: 1.2rem;
