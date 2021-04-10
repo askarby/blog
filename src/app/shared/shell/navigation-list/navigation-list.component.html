@@ -15,7 +15,7 @@
 
 <!-- Templates for navigation items -->
 <ng-template #internalLink let-item>
-  <a [routerLink]="item.urlTree">{{ item.title }}</a>
+  <a [routerLink]="item.urlTree" routerLinkActive="active">{{ item.title }}</a>
 </ng-template>
 
 <ng-template #externalLink let-item>

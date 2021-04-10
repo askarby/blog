@@ -19,16 +19,25 @@
       }
     }
 
-    .blog > a:hover {
-      color: colors.clr(blog);
+    .blog {
+      & > a:hover,
+      & > a.active {
+        color: colors.clr(blog);
+      }
     }
 
-    .presentations > a:hover {
-      color: colors.clr(presentations);
+    .presentations {
+      & > a:hover,
+      & > a.active {
+        color: colors.clr(presentations);
+      }
     }
 
-    .about > a:hover {
-      color: colors.clr(about);
+    .about {
+      & > a:hover,
+      & > a.active {
+        color: colors.clr(about);
+      }
     }
   }
 }
@@ -46,21 +55,24 @@
 
     li {
       display: block;
-      padding: 0 0.5rem;
 
-      &:hover {
+      &:hover,
+      & > a.active {
         background-color: white;
       }
 
-      &.blog:hover {
+      &.blog:hover,
+      &.blog > a.active {
         border-right: 0.4rem solid colors.clr(blog);
       }
 
-      &.presentations:hover {
+      &.presentations:hover,
+      &.presentations > a.active {
         border-right: 0.4rem solid colors.clr(presentations);
       }
 
-      &.about:hover {
+      &.about:hover,
+      &.about > a.active {
         border-right: 0.4rem solid colors.clr(about);
       }
     }
