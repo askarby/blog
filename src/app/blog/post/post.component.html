@@ -1,14 +1,14 @@
-<header>
-  <img [src]="(current$ | async)?.image" />
-  <pre>
-    {{ current$ | async | json }}
-  </pre>
-</header>
+<ng-container *ngIf="current$ | async as post; else postNotFound">
+  <app-post-header [route]="post"></app-post-header>
 
-<article>
-  <scully-content></scully-content>
-</article>
+  <article>
+    <scully-content></scully-content>
+  </article>
 
-<div *ngIf="current$ | async as post" class="progress-bar">
-  {{ post.title }}
-</div>
+  <app-post-footer [route]="post"></app-post-footer>
+</ng-container>
+
+<ng-template #postNotFound>
+  <h1>Oh no!</h1>
+  Unable to find post!
+</ng-template>

@@ -9,17 +9,13 @@
     "blog": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
+        "@ngneat/spectator:spectator-component": {
+          "style": "scss",
+          "jest": true,
+          "strict": true
         },
         "@schematics/angular:application": {
           "strict": true
-        },
-        "schematics": {
-          "@ngneat/spectator:spectator-component": {
-            "style": "scss",
-            "jest": true
-          }
         }
       },
       "root": "",
