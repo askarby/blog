@@ -12,6 +12,10 @@ In progress:
 
 Still missing:
 
+- [ ] Blog listings page
+  - [ ] Listing all posts in reverse-order (newest first, oldest last)
+  - [ ] Dynamically group
+    - Based on number of posts within a time-period, group on these, eg. if 10 posts in a year then group by year, if > 10 in a year then group by month!
 - [ ] Home (welcome) page
 - [ ] About page
 - [ ] Setting up github actions for deploying blog
