@@ -6,9 +6,11 @@ import {
 } from '@angular/core';
 import { HighlightService } from '../../highlight.service';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, EMPTY, Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
+import { Observable } from 'rxjs';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { Post } from '../../models/post.model';
+import { tap } from 'rxjs/operators';
+import { mapToPost } from '../operators/map-to-post.operator';
 
 @Component({
   selector: 'app-post',
@@ -18,7 +20,7 @@ import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class PostComponent implements OnInit, AfterViewChecked {
-  current$?: Observable<ScullyRoute>;
+  current$?: Observable<Post>;
 
   constructor(
     private scully: ScullyRoutesService,
@@ -27,25 +29,10 @@ export class PostComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit(): void {
-    this.current$ = this.getCurrentScullyRoute();
+    this.current$ = this.scully.getCurrent().pipe(mapToPost());
   }
 
   ngAfterViewChecked(): void {
     this.highlightService.highlightAll();
-  }
-
-  private getCurrentScullyRoute(): Observable<ScullyRoute> {
-    return combineLatest([this.route.url, this.scully.available$]).pipe(
-      map(([urlTree, availableRoutes]) => ({
-        currentRoute: urlTree.join('/'),
-        availableRoutes,
-      })),
-      switchMap(({ currentRoute, availableRoutes }) => {
-        const found = availableRoutes.find((candidate) =>
-          candidate.route.endsWith(currentRoute)
-        );
-        return found ? of(found) : EMPTY;
-      })
-    );
   }
 }

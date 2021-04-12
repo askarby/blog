@@ -1,7 +1,7 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 
 import { PostFooterComponent } from './post-footer.component';
-import { createPost } from '../../testing/post.test-utils';
+import { createPost } from '../../../testing/post.test-utils';
 
 describe('PostFooterComponent', () => {
   const createComponent = createComponentFactory(PostFooterComponent);
@@ -12,7 +12,7 @@ describe('PostFooterComponent', () => {
   beforeEach(() => {
     spectator = createComponent({
       props: {
-        route: createPost(),
+        post: createPost(),
       },
     });
     component = spectator.component;

@@ -8,14 +8,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ENVIRONMENT_TOKEN } from './shared/di.tokens';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-  ],
+  declarations: [AppComponent, NotFoundComponent],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [
     {
       provide: ENVIRONMENT_TOKEN,

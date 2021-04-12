@@ -1,11 +1,11 @@
 <ng-container *ngIf="current$ | async as post; else postNotFound">
-  <app-post-header [route]="post"></app-post-header>
+  <app-post-header [post]="post"></app-post-header>
 
   <article>
     <scully-content></scully-content>
   </article>
 
-  <app-post-footer [route]="post"></app-post-footer>
+  <app-post-footer [post]="post"></app-post-footer>
 </ng-container>
 
 <ng-template #postNotFound>

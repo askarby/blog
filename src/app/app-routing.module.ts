@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LegacyUrlLookupGuard } from './not-found/legacy-url-lookup.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +11,15 @@ const routes: Routes = [
   {
     path: 'blog',
     loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    canActivate: [LegacyUrlLookupGuard],
   },
 ];
 

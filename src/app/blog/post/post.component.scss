@@ -1,6 +1,15 @@
 @use 'colors';
 @use 'include-media' as responsive;
 
+:host {
+  display: block;
+  padding-top: 2.938rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding-top: 3rem;
+  }
+}
+
 article {
   font-size: 1.2rem;
   line-height: 1.75rem;

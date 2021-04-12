@@ -1,4 +1,5 @@
-import { RouteTypes, ScullyConfig } from '@scullyio/scully';
+import { RouteTypes, ScullyConfig, setPluginConfig } from '@scullyio/scully';
+import { timeToRead, timeToReadOptions } from 'scully-plugin-time-to-read';
 
 export const config: ScullyConfig = {
   projectRoot: './src',
@@ -13,3 +14,7 @@ export const config: ScullyConfig = {
     },
   },
 };
+
+setPluginConfig(timeToRead, {
+  path: '/blog/post',
+} as timeToReadOptions);

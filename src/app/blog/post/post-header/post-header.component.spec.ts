@@ -1,10 +1,15 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 
 import { PostHeaderComponent } from './post-header.component';
-import { createPost } from '../../testing/post.test-utils';
+import { MockComponents } from 'ng-mocks';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { createPost } from '../../../testing/post.test-utils';
 
 describe('PostHeaderComponent', () => {
-  const createComponent = createComponentFactory(PostHeaderComponent);
+  const createComponent = createComponentFactory({
+    component: PostHeaderComponent,
+    declarations: [MockComponents(FaIconComponent)],
+  });
 
   let spectator: Spectator<PostHeaderComponent>;
   let component: PostHeaderComponent;
@@ -12,7 +17,7 @@ describe('PostHeaderComponent', () => {
   beforeEach(() => {
     spectator = createComponent({
       props: {
-        route: createPost(),
+        post: createPost(),
       },
     });
     component = spectator.component;

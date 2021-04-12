@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ScullyRoute } from '@scullyio/ng-lib';
+import { Post } from '../../../models/post.model';
 
 @Component({
   selector: 'app-post-footer',
@@ -8,5 +8,5 @@ import { ScullyRoute } from '@scullyio/ng-lib';
 })
 export class PostFooterComponent {
   @Input()
-  route!: ScullyRoute;
+  post!: Post;
 }

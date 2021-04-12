@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ScullyRoute } from '@scullyio/ng-lib';
+import { faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
+import { Post } from '../../../models/post.model';
 
 @Component({
   selector: 'app-post-header',
@@ -8,5 +9,10 @@ import { ScullyRoute } from '@scullyio/ng-lib';
 })
 export class PostHeaderComponent {
   @Input()
-  route!: ScullyRoute;
+  post!: Post;
+
+  icons = {
+    released: faCalendarAlt,
+    readTime: faClock,
+  };
 }

@@ -1,5 +1,83 @@
+@use 'include-media' as responsive;
+
+:host {
+  display: block;
+  padding-top: 0.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding-top: 1.5rem;
+  }
+}
+
+h1,
+.info,
+.description {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding: 0;
+  }
+
+  @include responsive.media("screen", ">=desktop") {
+    max-width: 55rem;
+  }
+}
+
+h1 {
+  color: #000;
+
+  font-size: 2rem;
+  line-height: 2.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    font-size: 3rem;
+    line-height: 3.75rem;
+  }
+}
+
+.info {
+  color: #a9a9a9;
+  line-height: 1.8rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    line-height: 2.5rem;
+  }
+
+  & > div {
+    display: inline-block;
+  }
+
+  .read-time {
+    margin-left: 2rem;
+
+    @include responsive.media("screen", ">=tablet") {
+      margin-left: 4rem;
+    }
+  }
+}
+
+.description {
+  color: #a9a9a9;
+
+  @include responsive.media("screen", ">=tablet") {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 img {
   max-width: 100%;
+
+  @include responsive.media("screen", ">=tablet") {
+    max-width: 40rem;
+  }
+
+  @include responsive.media("screen", ">=desktop") {
+    max-width: 55rem;
+  }
+
   margin: 0 auto;
   display: block;
   padding: 1rem 0;

@@ -8,9 +8,16 @@ import { SharedModule } from '../shared/shared.module';
 import { ScullyContentModule } from '@scullyio/ng-lib';
 import { PostHeaderComponent } from './post/post-header/post-header.component';
 import { PostFooterComponent } from './post/post-footer/post-footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, BlogRoutingModule, ScullyContentModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    FontAwesomeModule,
+    ScullyContentModule,
+    BlogRoutingModule,
+  ],
   declarations: [
     PostComponent,
     ListingComponent,
