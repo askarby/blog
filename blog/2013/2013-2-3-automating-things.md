@@ -1,14 +1,14 @@
 ---
-layout: post
 title: "Automating things"
 description: On automating things.
-image: '/assets/img/2013/robot.jpg'
-category: 'java'
-test: 'scripting'
+image: "/assets/2013/robot.jpg"
+category: "java"
+tags: "scripting"
 twitter_text: skarby.info blog post on automating things.
 introduction: Lately, I’d been given a task of upgrading the Apache ServiceMix installation at work, and I must admit that the somewhat easy task of grabbing a binary, had been replaced with a “waiting game”.
 published: true
 published_date: 2013-02-03
+legacy_url: automating-things
 ---
 
 Lately, I’d been given a task of upgrading the Apache ServiceMix installation at work, and I must admit that the somewhat easy task of grabbing a binary, had been replaced with a “waiting game”.
@@ -46,9 +46,10 @@ Don’t start working on things that you havn’t investigated if are even possi
 …everyone does, you’ll as well – this means that you should have a plan for reverting the changes.
 
 1. Save your scripts in version control (I recommend git, but any will do), that way you can revert changes when you make a mistake.
-2. Create your script on a PC  that won’t affect your productivity – that means: not your production environment (d’uh), not your testing environment, and not your development environment. Create your scripts in a virtual machine (VMWare or VirtualBox, it’s up to you) that way you can create snapshots and revert back your machine’s state when re-iterating executing steps from your script.
+2. Create your script on a PC that won’t affect your productivity – that means: not your production environment (d’uh), not your testing environment, and not your development environment. Create your scripts in a virtual machine (VMWare or VirtualBox, it’s up to you) that way you can create snapshots and revert back your machine’s state when re-iterating executing steps from your script.
 
 ## Choice of language
+
 What’s your target environment?
 
 - **Windows-only?** Then use batch-scripting or PowerShell.
@@ -63,9 +64,9 @@ It can be a simple choice of accepting command line arguments, or reading from a
 
 ## What’s going on here?
 
-When you write an application, you always log the state of your applications, right? (if you’re answering “no” to this question, you should start to do so). Since a script is an application (in my mind it is), you need to log what your script does  as well. Even more importantly that logging “what’s going on” you should also log “what’s supposed to happen”. That way you can determine if your requirements are being met. It’s entirely up to you to deside if you want to log to a file or to the console (whether that’s stdout or stderr).
+When you write an application, you always log the state of your applications, right? (if you’re answering “no” to this question, you should start to do so). Since a script is an application (in my mind it is), you need to log what your script does as well. Even more importantly that logging “what’s going on” you should also log “what’s supposed to happen”. That way you can determine if your requirements are being met. It’s entirely up to you to deside if you want to log to a file or to the console (whether that’s stdout or stderr).
 
-“Exit codes” is another type of logging. Since you’ll rely heavily on those while determining if the commands executed, from within your script, are succesful, you should emit exit codes from your script as well. Remember that an 0 (zero)  is for indicating when things go well, while every other exit code indicates something went (terribly) wrong.
+“Exit codes” is another type of logging. Since you’ll rely heavily on those while determining if the commands executed, from within your script, are succesful, you should emit exit codes from your script as well. Remember that an 0 (zero) is for indicating when things go well, while every other exit code indicates something went (terribly) wrong.
 
 If you use exit codes wisely, you’ll be able to script interactions between your scripts.
 

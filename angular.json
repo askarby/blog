@@ -31,7 +31,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*.{png,jpg,jpeg,gif}",
+                "input": "blog/",
+                "output": "/assets/"
+              }
+            ],
             "styles": ["src/scss/styles.scss"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/scss/shared"]

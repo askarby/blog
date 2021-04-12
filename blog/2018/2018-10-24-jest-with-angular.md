@@ -1,14 +1,14 @@
 ---
-layout: post
 title: "Jest with Angular"
 description: A "step-by-step" guide on testing your Angular application with Jest.
-image: "/assets/img/2018/jest-angular.jpg"
+image: "/assets/2018/jest-angular.jpg"
 category: "angular"
 tags: "angular jest test"
 twitter_text: skarby.info blog post on testing Angular applications with Jest
 introduction: A step-by-step tutorial on how-to re-configure an Angular CLI project to use Jest for unit testing.
 published: true
 published_date: 2018-10-24
+legacy_url: jest-with-angular
 ---
 
 **Update (Oct. 6th, 2019)** I've meant to update this article for quite a while now. I'd simply like to notice that this lengthy guide is not at all

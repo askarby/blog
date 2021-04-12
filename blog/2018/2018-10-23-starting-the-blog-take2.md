@@ -1,13 +1,13 @@
 ---
-layout: post
 title: "Restarting the blog, again"
 description: On restarting my blog, again... 5-and-a-half years after my last post
-image: '/assets/img/2018/trippy.jpg'
-category: 'blog'
+image: "/assets/2018/trippy.jpg"
+category: "blog"
 twitter_text: skarby.info blog post on restarting the blog, again
 introduction: 5-and-a-half years has passed, it's time to bring this blog "back to life", by adding new content.
 published: true
 published_date: 2018-10-23
+legacy_url: starting-the-blog-take2
 ---
 
 It's been 5-and-a-half years (give or take), since my last update to this blog.
@@ -24,10 +24,12 @@ website). Due to the changing nature of being a freelance software developer, I 
 This is why I decided to bring it back (the blog).
 
 I'll be writing about:
-* technology, mostly tutorials (short or long)
-* work-arounds to problems
+
+- technology, mostly tutorials (short or long)
+- work-arounds to problems
 
 ## So why now
+
 So if I've been working as a freelancer software developer for 4 years, why only start writing now?
 
 I've been giving lectures, or talks (call them whatever you'd like) over the last years, and preparation is key. I spend a lot of time preparing for
