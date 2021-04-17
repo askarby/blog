@@ -8,6 +8,6 @@
     {{ post.readingTime | number: "1.0-0" }} min to read
   </div>
 </section>
-<h1>{{ post.title }}</h1>
+<h1 [id]="titleId">{{ post.title }}</h1>
 <p class="description">{{ post.description }}</p>
 <img [alt]="post.title" [src]="post.image" />

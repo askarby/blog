@@ -1,3 +1,5 @@
+@use 'colors';
+
 :host {
   // Positioning
   position: fixed;
@@ -6,7 +8,8 @@
   bottom: 0;
 
   // Layout
-  display: block;
+  display: flex;
+  flex-direction: row;
   width: 100%;
   padding: 0.625rem;
 
@@ -17,4 +20,22 @@
 
   // Animation
   transition: bottom 0.5s;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+nav {
+  cursor: pointer;
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  height: 5px;
+  background-color: colors.clr(blog);
 }

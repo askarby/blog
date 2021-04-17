@@ -11,6 +11,9 @@ export class PostHeaderComponent {
   @Input()
   post!: Post;
 
+  @Input()
+  titleId!: string;
+
   icons = {
     released: faCalendarAlt,
     readTime: faClock,

@@ -9,6 +9,7 @@ import { ScullyContentModule } from '@scullyio/ng-lib';
 import { PostHeaderComponent } from './post/post-header/post-header.component';
 import { PostFooterComponent } from './post/post-footer/post-footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TableOfContentsComponent } from './post/table-of-contents/table-of-contents.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ListingComponent,
     PostHeaderComponent,
     PostFooterComponent,
+    TableOfContentsComponent,
   ],
 })
 export class BlogModule {}

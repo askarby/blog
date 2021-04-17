@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 /src/assets/scully-routes.json
+/scully/plugins/*.js
+/scully/plugins/*.js.map
 
 # dependencies
 /node_modules

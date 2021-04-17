@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  AfterViewInit,
   Component,
   OnInit,
   ViewEncapsulation,
@@ -20,7 +21,7 @@ import { mapToPost } from '../operators/map-to-post.operator';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class PostComponent implements OnInit, AfterViewChecked {
-  current$?: Observable<Post>;
+  current$?: Observable<Post | null>;
 
   constructor(
     private scully: ScullyRoutesService,

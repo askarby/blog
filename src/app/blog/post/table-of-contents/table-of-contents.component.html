@@ -1,0 +1,11 @@
+<header>Table of contents</header>
+<section class="entries">
+  <a data-level="1" (click)="scrollToTitle()">{{ post.title }}</a>
+  <a
+    *ngFor="let entry of post.toc"
+    [attr.data-level]="entry.level"
+    (click)="scrollTo(entry)"
+  >
+    {{ entry.text }}
+  </a>
+</section>

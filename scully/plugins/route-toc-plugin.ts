@@ -1,5 +1,10 @@
-import { getMyConfig, HandledRoute, registerPlugin } from '@scullyio/scully';
-import * as fs from 'fs';
+import {
+  getPluginConfig,
+  HandledRoute,
+  registerPlugin,
+} from '@scullyio/scully';
+import { createReadStream } from 'fs';
+import { createInterface } from 'readline';
 
 export const routeToc = 'routeToc';
 
@@ -8,33 +13,86 @@ export interface RouteTocOptions {
   levels: string[];
 }
 
-export const routeTocFunc = async (routes: HandledRoute[]) => {
-  const options: RouteTocOptions = getMyConfig(routeToc);
-  console.log('found options >>\n', JSON.stringify(options, null, 2));
-  return routes
-    .filter((route) => route.templateFile)
-    .map((route) => {
-      if (route.route.startsWith(options.path)) {
-        const content = fs.readFileSync(route.templateFile).toString('utf-8');
-        console.log(content);
-        // TODO: Add headings for toc-rendering of Angular App, eg.:
-        // toc: [
-        //   { id: '...', text: '...', level: 'h1' },
-        //   { id: '...', text: '...', level: 'h2' },
-        //   { id: '...', text: '...', level: 'h2' },
-        //   ...
-        // ]
-        const newRoute = {
-          ...route,
-          data: {
-            ...route.data,
-            bob: true,
-          },
-        };
-        return newRoute;
-      }
-      return route;
-    });
+export interface TocEntry {
+  id: string;
+  text: string;
+  level: number;
+}
+
+export const routeTocFunc = async (
+  routes: HandledRoute[]
+): Promise<HandledRoute[]> => {
+  const options: RouteTocOptions = getPluginConfig(routeToc);
+
+  const enhanced: HandledRoute[] = [];
+  for (const route of routes) {
+    if (route.templateFile && route.route.startsWith(options.path)) {
+      enhanced.push(await enhanceWithToc(route));
+    }
+  }
+  return enhanced;
 };
-console.log(`Registering ${routeToc} plugin, with function: ${routeTocFunc}!`);
+
+const enhanceWithToc = async (route: HandledRoute): Promise<HandledRoute> => {
+  const headings = await readHeadings(route.templateFile);
+  if (headings.length === 0) {
+    return route;
+  }
+
+  return {
+    ...route,
+    data: {
+      ...route.data,
+      toc: headings.map(
+        (raw): TocEntry => {
+          const [, level, text] = raw.trim().match(/(#+)\s+(.*)/);
+          return {
+            id: getIdFromHeading(text),
+            text: getTextFromHeading(text),
+            level: level.length,
+          };
+        }
+      ),
+    },
+  };
+};
+
+const getTextFromHeading = (heading: string): string =>
+  heading
+    .split('')
+    .filter((letter) => !['`', '*', '_'].includes(letter))
+    .join('');
+
+const getIdFromHeading = (heading: string): string =>
+  heading
+    .split('')
+    .map((letter) => {
+      if (letter.match(/[a-zæøå0-9\-]/i)) {
+        return letter.toLocaleLowerCase();
+      } else if (letter.match(/\s/)) {
+        return '-';
+      } else {
+        return '';
+      }
+    })
+    .join('');
+
+const readHeadings = async (pathToMarkdownFile: string): Promise<string[]> => {
+  const readInterface = createInterface({
+    input: createReadStream(pathToMarkdownFile),
+    terminal: false,
+  });
+  return new Promise((resolve) => {
+    const headlines = [];
+    readInterface.on('line', (line) => {
+      if (line.startsWith('#')) {
+        headlines.push(line);
+      }
+    });
+    readInterface.on('close', () => {
+      resolve(headlines);
+    });
+  });
+};
+
 registerPlugin('routeProcess', routeToc, routeTocFunc);

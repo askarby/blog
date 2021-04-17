@@ -10,6 +10,19 @@
   }
 }
 
+app-table-of-contents {
+  display: none;
+
+  @include responsive.media("screen", ">=wide-desktop") {
+    display: block;
+
+    position: fixed;
+    z-index: 10;
+    left: calc(50vw + 30rem);
+    top: 5rem;
+  }
+}
+
 article {
   font-size: 1.2rem;
   line-height: 1.75rem;

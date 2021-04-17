@@ -1,3 +1,8 @@
-<div class="progress-bar">
-  {{ post.title }}
-</div>
+<span class="title">{{ post.title }}</span>
+
+<nav (click)="scrollToTop()">
+  To top
+  <fa-icon [icon]="icons.toTop"></fa-icon>
+</nav>
+
+<div class="progress" [ngStyle]="{ right: percentageRemaining + '%' }"></div>

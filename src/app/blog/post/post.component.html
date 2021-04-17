@@ -1,5 +1,9 @@
 <ng-container *ngIf="current$ | async as post; else postNotFound">
-  <app-post-header [post]="post"></app-post-header>
+  <app-post-header titleId="__title_id" [post]="post"></app-post-header>
+  <app-table-of-contents
+    titleId="__title_id"
+    [post]="post"
+  ></app-table-of-contents>
 
   <article>
     <scully-content></scully-content>
@@ -9,6 +13,8 @@
 </ng-container>
 
 <ng-template #postNotFound>
-  <h1>Oh no!</h1>
-  Unable to find post!
+  <article class="not-found">
+    <h1>Oh no!</h1>
+    <p>Unable to find post!</p>
+  </article>
 </ng-template>

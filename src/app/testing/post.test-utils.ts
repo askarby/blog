@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { Post } from '../models/post.model';
+import { Post, TocEntry } from '../models/post.model';
 import { ScullyRoute } from '@scullyio/ng-lib';
 
 export const createPost = (seed: Partial<Post> = {}): Post => ({
@@ -13,6 +13,7 @@ export const createPost = (seed: Partial<Post> = {}): Post => ({
   image: '/assets/2021/write.jpg',
   tags: ['writing', 'blogging'],
   published_date: new Date(Date.parse('2021-04-10T00:00:00.000Z')),
+  toc: createTableOfContents(),
   ...seed,
 });
 
@@ -26,3 +27,16 @@ export const createPostAsScullyRoute = (
     published_date: post.published_date.toISOString(),
   };
 };
+
+export const createTableOfContents = (): TocEntry[] => [
+  { id: 'introduction', level: 2, text: 'Introduction' },
+  { id: 'wash-your-car', level: 2, text: 'Wash your card' },
+  { id: 'apply-soap', level: 3, text: 'Apply soap' },
+  {
+    id: 'rinse-of-soap-with-water',
+    level: 3,
+    text: 'Rinse of soap with water',
+  },
+  { id: 'dry-with-leaf-blower', level: 3, text: 'Dry with leaf blower' },
+  { id: 'introduction', level: 2, text: 'Introduction' },
+];
