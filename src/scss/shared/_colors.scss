@@ -1,9 +1,10 @@
-$primary-color: #EE6352;
-$blog: #3F78C9;
-$about: #49C4A3;
-$presentations: #FFAC83;
-$white: #FFF;
-$black: #444A51;
+$primary-color: #ee6352;
+$blog: #3f78c9;
+$about: #49c4a3;
+$presentations: #ffac83;
+$white: #fff;
+$black: #2d3135;
+$hint: #f1eaea;
 
 $lighten: 5;
 $darken: 25;
@@ -30,9 +31,14 @@ $colors: (
     dark: darken($presentations, $darken),
   ),
   neutral: (
-    base: #69777F,
-    light: #B2CAD8,
+    base: #69777f,
+    light: #b2cad8,
     dark: $black,
+  ),
+  hint: (
+    base: $hint,
+    light: lighten($hint, $lighten),
+    dark: darken($hint, $darken),
   ),
 );
 
