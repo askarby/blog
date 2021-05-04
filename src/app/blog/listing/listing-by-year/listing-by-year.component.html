@@ -1,0 +1,9 @@
+<header>
+  <h1>{{ group.year }}</h1>
+</header>
+<app-listing-post
+  *ngFor="let post of group.posts"
+  [post]="post"
+  (mouseenter)="postFocus.emit(post)"
+  (mouseleave)="postFocus.emit(null)"
+></app-listing-post>

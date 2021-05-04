@@ -10,13 +10,17 @@ import { PostHeaderComponent } from './post/post-header/post-header.component';
 import { PostFooterComponent } from './post/post-footer/post-footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableOfContentsComponent } from './post/table-of-contents/table-of-contents.component';
+import { ListingPostComponent } from './listing/listing-post/listing-post.component';
+import { ListingByYearComponent } from './listing/listing-by-year/listing-by-year.component';
+import { ListingByMonthAndYearComponent } from './listing/listing-by-month-and-year/listing-by-month-and-year.component';
+import { ListingPostPreviewComponent } from './listing/listing-post-preview/listing-post-preview.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    ScullyContentModule,
     SharedModule,
     FontAwesomeModule,
-    ScullyContentModule,
     BlogRoutingModule,
   ],
   declarations: [
@@ -25,6 +29,10 @@ import { TableOfContentsComponent } from './post/table-of-contents/table-of-cont
     PostHeaderComponent,
     PostFooterComponent,
     TableOfContentsComponent,
+    ListingPostComponent,
+    ListingByYearComponent,
+    ListingByMonthAndYearComponent,
+    ListingPostPreviewComponent,
   ],
 })
 export class BlogModule {}

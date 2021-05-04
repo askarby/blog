@@ -1,0 +1,16 @@
+@use "colors";
+@use 'include-media' as responsive;
+
+header {
+  color: colors.clr(blog);
+  font-size: 1.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    margin: 1rem 0;
+  }
+}
+
+app-listing-post {
+  display: block;
+  margin-bottom: 1rem;
+}

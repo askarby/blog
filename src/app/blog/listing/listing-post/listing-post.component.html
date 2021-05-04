@@ -1,0 +1,13 @@
+<a [routerLink]="post.route">
+  <h1>{{ post.title }}</h1>
+  <p class="description tablets-plus">{{ post.description }}</p>
+  <time>
+    <span class="tablets-plus">{{
+      post.published_date | date: "longDate"
+    }}</span>
+    <span class="phones">{{ post.published_date | date: "MMMM dd" }}</span>
+  </time>
+  <ul class="tags" *ngIf="hasTags">
+    <li *ngFor="let tag of post.tags">{{ tag }}</li>
+  </ul>
+</a>

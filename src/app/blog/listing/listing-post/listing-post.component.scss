@@ -1,0 +1,96 @@
+@use 'colors';
+@use 'include-media' as responsive;
+
+:host {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  background-color: var(--hover);
+
+  @include responsive.media("screen", ">=tablet") {
+    background-color: #fff;
+
+    &:hover {
+      background-color: var(--hover);
+    }
+  }
+}
+
+a {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+
+  grid-template-areas:
+    "header date"
+    "tags tags";
+
+  @include responsive.media("screen", ">=tablet") {
+    grid-template-areas:
+      "header date"
+      "description tags";
+  }
+
+  text-decoration: none;
+  color: black;
+
+  h1 {
+    grid-area: header;
+  }
+
+  .description {
+    grid-area: description;
+    color: colors.clr(neutral);
+  }
+
+  time {
+    grid-area: date;
+    justify-self: end;
+    text-align: right;
+
+    font-size: 0.9rem;
+    color: #737373;
+  }
+
+  ul.tags {
+    grid-area: tags;
+    justify-self: end;
+  }
+}
+
+li {
+  display: inline-block;
+
+  background-color: #aeaeae;
+  border: 1px solid #878787;
+  border-radius: 0.2rem;
+
+  font-size: 0.7rem;
+  color: #fff;
+  line-height: 0.9rem;
+
+  padding: 0.2rem;
+
+  & + li {
+    margin-left: 0.2rem;
+  }
+}
+
+.phones {
+  display: inline;
+
+  @include responsive.media("screen", ">=tablet") {
+    display: none;
+  }
+}
+
+.tablets-plus {
+  display: none;
+
+  @include responsive.media("screen", ">=tablet") {
+    display: inline;
+  }
+}

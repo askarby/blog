@@ -1,0 +1,12 @@
+<header>
+  <h1>{{ group.year }}</h1>
+</header>
+<section *ngFor="let subgroup of group.subgroups">
+  <h2>{{ subgroup.month | monthName }}</h2>
+  <app-listing-post
+    *ngFor="let post of subgroup.posts"
+    [post]="post"
+    (mouseenter)="postFocus.emit(post)"
+    (mouseleave)="postFocus.emit(null)"
+  ></app-listing-post>
+</section>

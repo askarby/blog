@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NavigationListComponent } from './shell/navigation-list/navigation-list.component';
 import { DOCUMENT_TOKEN, ENVIRONMENT_TOKEN, WINDOW_TOKEN } from './di.tokens';
 import { environment } from '../../environments/environment';
+import { MonthNamePipe } from './pipes/month-name.pipe';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ScullyLibModule, FontAwesomeModule],
@@ -15,8 +16,9 @@ import { environment } from '../../environments/environment';
     NavigationBarComponent,
     SlideOutMenuComponent,
     NavigationListComponent,
+    MonthNamePipe,
   ],
-  exports: [NavigationBarComponent, SlideOutMenuComponent],
+  exports: [NavigationBarComponent, SlideOutMenuComponent, MonthNamePipe],
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders<SharedModule> {

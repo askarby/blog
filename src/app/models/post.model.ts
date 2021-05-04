@@ -25,19 +25,31 @@ export interface TocEntry {
 
 export interface Post extends ScullyRoute {
   /**
+   * Title of post.
+   *
+   * (this is indeed specified in `ScullyRoute`, albeit optional, where we consider it required)
+   */
+  title: string;
+
+  /**
+   * Short description of the post (summary).
+   */
+  description: string;
+
+  /**
    * Image of post.
    */
   image: string;
 
   /**
-   * Tags applied to post.
-   */
-  tags: string[];
-
-  /**
    * The date the post was published.
    */
   published_date: Date;
+
+  /**
+   * Tags applied to post.
+   */
+  tags: string[];
 
   /**
    * Legacy URL, to keep SEO scoring from previous blog.
