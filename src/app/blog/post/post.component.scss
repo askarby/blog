@@ -1,15 +1,6 @@
 @use 'colors';
 @use 'include-media' as responsive;
 
-:host {
-  display: block;
-  padding-top: 2.938rem;
-
-  @include responsive.media("screen", ">=tablet") {
-    padding-top: 3rem;
-  }
-}
-
 app-table-of-contents {
   display: none;
 
@@ -18,7 +9,7 @@ app-table-of-contents {
 
     position: fixed;
     z-index: 10;
-    left: calc(50vw + 30rem);
+    left: calc(50vw + 32rem);
     top: 5rem;
   }
 }

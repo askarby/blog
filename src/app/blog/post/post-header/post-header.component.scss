@@ -2,10 +2,31 @@
 
 :host {
   display: block;
-  padding-top: 0.5rem;
+
+  background-image: url("/assets/images/blog-hero-image.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper {
+  background-color: #fff;
 
   @include responsive.media("screen", ">=tablet") {
-    padding-top: 1.5rem;
+    $offsetTop: 2.5rem;
+    margin: 0 auto $offsetTop auto;
+    top: $offsetTop;
+    position: relative;
+
+    padding: 0;
+    padding-top: 2rem;
+    border-radius: 2rem 2rem 0 0;
+  }
+
+  @include responsive.media("screen", ">=desktop") {
+    $offsetTop: 5rem;
+    margin: 0 auto $offsetTop auto;
+    top: $offsetTop;
+    max-width: 60rem;
   }
 }
 
