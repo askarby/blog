@@ -12,11 +12,13 @@
 // Basic setup
 :root {
   // Theme colors (sections of the site)
-  --primary: colors.clr(primary);
-  --blog: colors.clr(blog);
-  --about: colors.clr(about);
-  --presentations: colors.clr(presentations);
+  --primary: #{colors.clr(primary)};
+  --blog: #{colors.clr(blog)};
+  --about: #{colors.clr(about)};
+  --presentations: #{colors.clr(presentations)};
 
   // Configure current (default look of site), fallback!
-  --current: colors.clr(primary);
+  --current: #{colors.clr(primary)};
+
+  --hover: #{colors.clr(hint, light)};
 }
