@@ -59,4 +59,11 @@ fa-icon {
 
 main {
   background: #fff;
+
+  display: block;
+  padding-top: 3.25rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding-top: 3.8rem;
+  }
 }
