@@ -1,4 +1,5 @@
 import 'jest-preset-angular/setup-jest';
+import { toBeAnyOf } from './src/app/testing/matchers/to-be-any-of.matcher';
 
 /* global mocks for jsdom */
 const mock = () => {
@@ -18,13 +19,24 @@ Object.defineProperty(window, 'getComputedStyle', {
 });
 
 Object.defineProperty(document.body.style, 'transform', {
-  value: () => {
-    return {
-      enumerable: true,
-      configurable: true,
-    };
-  },
+  value: () => ({
+    enumerable: true,
+    configurable: true,
+  }),
 });
 
 /* output shorter and more meaningful Zone error stack traces */
-// Error.stackTraceLimit = 2;
+Error.stackTraceLimit = 2;
+
+// Custom matchers
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jest {
+    interface Matchers<R> {
+      toBeAnyOf(expected: any[]): CustomMatcherResult;
+    }
+  }
+}
+expect.extend({
+  toBeAnyOf,
+});
