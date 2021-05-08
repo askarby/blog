@@ -1,0 +1,37 @@
+h1 {
+  color: #000;
+
+  font-size: 3rem;
+  line-height: 3.75rem;
+}
+
+.info {
+  color: #a9a9a9;
+  line-height: 2.5rem;
+
+  & > div {
+    display: inline-block;
+  }
+
+  .read-time {
+    margin-left: 4rem;
+  }
+}
+
+p {
+  color: #a9a9a9;
+
+  font-size: 1.25rem;
+  line-height: 2rem;
+
+  & + p {
+    margin-top: 2rem;
+  }
+}
+
+img {
+  max-width: 100%;
+  width: auto;
+
+  margin-top: 1rem;
+}

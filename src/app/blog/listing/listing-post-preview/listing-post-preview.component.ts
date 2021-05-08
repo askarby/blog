@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Post } from '../../../models/post.model';
+import { faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-listing-post-preview',
@@ -9,5 +10,10 @@ import { Post } from '../../../models/post.model';
 })
 export class ListingPostPreviewComponent {
   @Input()
-  post!: Post;
+  post!: Post | null;
+
+  icons = {
+    released: faCalendarAlt,
+    readTime: faClock,
+  };
 }

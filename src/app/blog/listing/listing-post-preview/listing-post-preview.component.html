@@ -1,1 +1,25 @@
-<p>{{ post.title }}</p>
+<section *ngIf="post; else emptySelection">
+  <h1>{{ post.title }}</h1>
+  <section class="info">
+    <div class="released">
+      <fa-icon [icon]="icons.released"></fa-icon>
+      {{ post.published_date | date: "longDate" }}
+    </div>
+    <div class="read-time">
+      <fa-icon [icon]="icons.readTime"></fa-icon>
+      {{ post.readingTime | number: "1.0-0" }} min to read
+    </div>
+  </section>
+  <p class="description">{{ post.description }}</p>
+  <img [alt]="post.title" [src]="post.image" />
+</section>
+
+<ng-template #emptySelection>
+  <h1>Preview</h1>
+  <img alt="Preview" src="/assets/images/mouse-hover.svg" />
+  <p class="description">
+    Move your mouse (or finger, if on a larger tablet) over on a blog-post
+    listing (left of this), to get a preview of the post...
+  </p>
+  <p class="description">To read a post, click upon the post listing!</p>
+</ng-template>

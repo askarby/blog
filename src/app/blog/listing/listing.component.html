@@ -1,20 +1,21 @@
-<picture class="hero">
+<header class="hero">
   <h1>Blog</h1>
-</picture>
+</header>
 
-<ng-container *ngFor="let group of grouped$ | async">
-  <app-listing-by-year
-    *ngIf="group.type === 'by-year'"
-    [group]="group"
-    (postFocus)="focusedPost = $event"
-  ></app-listing-by-year>
+<section class="listings">
+  <ng-container *ngFor="let group of grouped$ | async">
+    <app-listing-by-year
+      *ngIf="group.type === 'by-year'"
+      [group]="group"
+      (postFocus)="focusedPost = $event"
+    ></app-listing-by-year>
 
-  <app-listing-by-month-and-year
-    *ngIf="group.type === 'by-year-and-month'"
-    [group]="group"
-    (postFocus)="focusedPost = $event"
-  ></app-listing-by-month-and-year>
-</ng-container>
+    <app-listing-by-month-and-year
+      *ngIf="group.type === 'by-year-and-month'"
+      [group]="group"
+      (postFocus)="focusedPost = $event"
+    ></app-listing-by-month-and-year>
+  </ng-container>
+</section>
 
-<app-listing-post-preview *ngIf="focusedPost" [post]="focusedPost">
-</app-listing-post-preview>
+<app-listing-post-preview [post]="focusedPost"> </app-listing-post-preview>
