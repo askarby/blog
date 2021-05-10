@@ -13,6 +13,8 @@ export interface Environment {
   links: (InternalLink | ExternalLink)[];
 
   social: SocialMedia;
+  email: string;
+  websites: Websites;
 }
 
 export interface SocialMedia {
@@ -21,4 +23,10 @@ export interface SocialMedia {
   linkedin: string;
   stackoverflow: string;
   github: string;
+}
+
+export interface Websites {
+  blog: string;
+  own: string;
+  innotech: string;
 }

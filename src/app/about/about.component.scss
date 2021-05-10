@@ -1,0 +1,159 @@
+@use 'colors';
+@use 'include-media' as responsive;
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 5rem;
+  margin-bottom: 2rem;
+
+  width: 100%;
+
+  background-image: url("/assets/images/about-hero-image.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #fff;
+
+    @include responsive.media("screen", ">=tablet") {
+      font-weight: 300;
+      font-size: 7.5rem;
+    }
+  }
+
+  img {
+    margin-left: 5rem;
+    border-radius: 50%;
+  }
+}
+
+article {
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+  padding-bottom: 2rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  blockquote,
+  code,
+  ul,
+  ol {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+
+    @include responsive.media("screen", ">=tablet") {
+      padding: 0;
+    }
+
+    @include responsive.media("screen", ">=desktop") {
+      max-width: 55rem;
+    }
+  }
+
+  a {
+    color: #00e;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    letter-spacing: 0.05rem;
+  }
+
+  blockquote {
+    float: none;
+    display: block;
+    border-left: 0.313rem solid #333;
+    padding: 0 1.875rem;
+    margin: 3.125rem auto;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: colors.clr(about);
+
+    @include responsive.media("screen", ">=tablet") {
+      font-size: 3rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: colors.clr(about);
+
+    @include responsive.media("screen", ">=tablet") {
+      font-size: 2.35rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: colors.clr(about);
+
+    @include responsive.media("screen", ">=tablet") {
+      font-size: 1.7rem;
+    }
+  }
+
+  // Inline code-snippet
+  :not(pre) > code {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 0.9rem;
+
+    word-wrap: break-word;
+    padding: 0.175rem 0.3rem;
+
+    color: #bf616a;
+    background: #f2f2f2;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+  }
+
+  // Highlighted code-block
+  pre > code {
+    display: block;
+    margin-bottom: 0;
+    overflow-y: auto;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.2rem;
+
+    fa-icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+  *,
+  :not(li) + *,
+  :not(li) {
+    margin-bottom: 1.5rem;
+  }
+}

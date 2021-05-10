@@ -1,0 +1,55 @@
+<header class="hero">
+  <h1>About</h1>
+  <img alt="Anders Skarby" src="/assets/images/anders-profile-image.jpeg" />
+</header>
+
+<article>
+  <h2>Who am I</h2>
+  <p>My name is Anders Skarby - welcome to my blog!</p>
+  <p>
+    I’m a software developer, a coder, a geek. I’m also fairly lazy, and not
+    really up to populating the contents of this page (so I’ll leave it sparsely
+    populated, for now).
+  </p>
+  <p>
+    Sometimes
+    <a [href]="environment.websites.innotech" target="_blank"
+      >people pay me to write software</a
+    >, and
+    <a [href]="environment.websites.own" target="_blank">sometimes they don’t</a
+    >.
+  </p>
+
+  <h2>Contact me</h2>
+  <p>You can also find me on:</p>
+  <ul>
+    <li *ngFor="let each of social">
+      <fa-icon [icon]="each.icon"></fa-icon
+      ><a [href]="each.link" target="_blank">{{ each.name }}</a>
+    </li>
+  </ul>
+  <p>
+    ...however, if you feel like social media isn’t really you, you can also
+    reach me via
+    <a [href]="'mailto:' + environment.email" target="_blank">e-mail</a>.
+  </p>
+
+  <h2>Copyright</h2>
+  <p>
+    This blog is open source, not the content or pictures but the code itself.
+  </p>
+  <p>
+    The code of the blog is licensed under the
+    <a href="https://https://github.com/askarby/blog/blob/master/CODE_LICENSE"
+      >MIT License</a
+    >, whereas the contents is licensed under the
+    <a href="https://https://github.com/askarby/blog/blob/master/CODE_LICENSE"
+      >"Attribution-ShareAlike 4.0 International" License</a
+    >.
+  </p>
+  <p>
+    Images are generally considered to be public domain, or attribution free. If
+    images are not public domain or attribution free, additional information
+    will be provided (on the page) about attribution and licensing concerns.
+  </p>
+</article>

@@ -26,11 +26,17 @@ export const sharedEnvironment: Omit<Environment, 'production'> = {
     },
   ],
 
-    social: {
+  social: {
     facebook: 'https://www.facebook.com/askarby/',
-      twitter: 'https://twitter.com/askarby',
-      linkedin: 'https://www.linkedin.com/in/askarby/',
-      stackoverflow: 'https://stackoverflow.com/users/1016516/anders',
-      github: 'https://github.com/askarby',
+    twitter: 'https://twitter.com/askarby',
+    linkedin: 'https://www.linkedin.com/in/askarby/',
+    stackoverflow: 'https://stackoverflow.com/users/1016516/anders',
+    github: 'https://github.com/askarby',
+  },
+  email: 'anders@skarby.info',
+  websites: {
+    blog: 'https://blog.skarby.info',
+    own: 'https://skarby.info',
+    innotech: 'https://inno-tech.dk',
   },
 };
