@@ -10,23 +10,6 @@
 
   <!-- Social Media -->
   <footer>
-    <a [href]="socialMedia.facebook" target="_blank">
-      <fa-icon class="facebook" [icon]="icons.social.facebook"></fa-icon>
-    </a>
-    <a [href]="socialMedia.twitter" target="_blank">
-      <fa-icon class="twitter" [icon]="icons.social.twitter"></fa-icon>
-    </a>
-    <a [href]="socialMedia.linkedin" target="_blank">
-      <fa-icon class="linkedin" [icon]="icons.social.linkedin"></fa-icon>
-    </a>
-    <a [href]="socialMedia.stackoverflow" target="_blank">
-      <fa-icon
-        class="stackoverflow"
-        [icon]="icons.social.stackoverflow"
-      ></fa-icon>
-    </a>
-    <a [href]="socialMedia.github" target="_blank">
-      <fa-icon class="github" [icon]="icons.social.github"></fa-icon>
-    </a>
+    <app-social-media [socialMedia]="socialMedia"></app-social-media>
   </footer>
 </aside>

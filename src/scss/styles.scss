@@ -1,6 +1,9 @@
 // Include reset
 @use "./partials/reset";
 
+// Include layout
+@use "./partials/layout";
+
 // Fonts sand colors
 @use "./partials/fonts";
 @use "./shared/colors";

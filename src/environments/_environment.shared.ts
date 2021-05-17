@@ -37,6 +37,14 @@ export const sharedEnvironment: Omit<Environment, 'production'> = {
   websites: {
     blog: 'https://blog.skarby.info',
     own: 'https://skarby.info',
-    innotech: 'https://inno-tech.dk',
+    company: 'https://inno-tech.dk',
   },
+
+  globalLicenses: [
+    {
+      forItem: 'icons',
+      from: 'fontawesome',
+      url: 'https://fontawesome.com/icons?d=gallery&p=2&m=free',
+    },
+  ],
 };

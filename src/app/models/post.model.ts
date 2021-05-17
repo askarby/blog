@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ScullyRoute } from '@scullyio/ng-lib';
+import { LicenseItem } from './license-info.model';
 
 export interface TocEntry {
   /**
@@ -64,4 +65,11 @@ export interface Post extends ScullyRoute {
    * (absent if having no headings)
    */
   toc?: TocEntry[];
+
+  /**
+   * Licenses that can be applied to the contents of the post.
+   *
+   * (when absent, this will produce an empty array of `LicenseItem`s).
+   */
+  licenses: LicenseItem[];
 }

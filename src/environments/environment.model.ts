@@ -2,6 +2,7 @@ import {
   ExternalLink,
   InternalLink,
 } from '../app/shared/shell/navigation.model';
+import { LicenseItem } from '../app/models/license-info.model';
 
 export interface Environment {
   production: boolean;
@@ -15,6 +16,8 @@ export interface Environment {
   social: SocialMedia;
   email: string;
   websites: Websites;
+
+  globalLicenses: LicenseItem[];
 }
 
 export interface SocialMedia {
@@ -28,5 +31,5 @@ export interface SocialMedia {
 export interface Websites {
   blog: string;
   own: string;
-  innotech: string;
+  company: string;
 }

@@ -2,6 +2,10 @@
 @use '../scss/shared/colors';
 @use '../scss/shared/include-media' as responsive;
 
+:host {
+  height: 100%;
+}
+
 aside.side-nav {
   // Positioning
   position: fixed;
@@ -57,13 +61,26 @@ fa-icon {
   }
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
 main {
   background: #fff;
 
   display: block;
   padding-top: 3.25rem;
 
+  flex-grow: 1;
+
   @include responsive.media("screen", ">=tablet") {
     padding-top: 3.8rem;
   }
+}
+
+app-page-footer {
+  flex-grow: 0;
 }

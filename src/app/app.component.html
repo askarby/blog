@@ -11,6 +11,14 @@
   (closeMenu)="toggleMenu()"
 ></app-slide-out-menu>
 
-<main>
-  <router-outlet></router-outlet>
-</main>
+<section class="container">
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-page-footer
+    [socialMedia]="environment.social"
+    [menuItems]="environment.links"
+    [licenseItems]="licenseItems$ | async"
+  ></app-page-footer>
+</section>

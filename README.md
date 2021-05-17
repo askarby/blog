@@ -8,12 +8,11 @@ This is the checklist of action items remaining, for the blog to function as exp
 
 In progress:
 
-- [ ] Footer
+- [ ] Documentation of how the development environment is working
 
 Still missing:
 
 - [ ] Home (welcome) page
-- [ ] Documentation of how the development environment is working
 - [ ] Unit tests - writing the actual tests
   - This is "catching up" on initial "things" that have no tests
     - New functionality should have tests (since we're out of the "starting project"-phase)
@@ -21,6 +20,7 @@ Still missing:
 - [ ] E2E tests
   - [ ] Setting up Cypress
   - [ ] Writing the actual tests
+- [ ] Search-functionality
 - [ ] Linting markdown files (checking that front-matter contains required things)
 - [ ] Github actions
   - [ ] Run unit tests
@@ -29,12 +29,13 @@ Still missing:
 - [ ] Analytics (tracking)
   - [ ] Actual integration configuration
   - [ ] Cookie consent
-- [ ] Copyright
-  - Source code -> open source (MIT licensed?)
-  - Content and images -> closed source
 
 Completed items:
 
+- [x] Footer
+- [x] Copyright
+  - Source code -> open source (MIT licensed?)
+  - Content and images -> other license
 - [x] Initial setup of blog seems to work now.
 - [x] Blog posts are visible (and rendered correctly)
 - [x] Top-bar navigation is working

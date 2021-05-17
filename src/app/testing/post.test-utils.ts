@@ -2,6 +2,7 @@
 import { Post, TocEntry } from '../models/post.model';
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { dateOfYear, getMonthIndex, getNameOfMonth } from './date.test-utils';
+import { createLicenseItem } from './license.test-util';
 
 export const createPost = (seed: Partial<Post> = {}): Post => ({
   route: '/blog/2021/2021-04-10-how-to-write-a-good-blog-post',
@@ -16,6 +17,7 @@ export const createPost = (seed: Partial<Post> = {}): Post => ({
   tags: ['writing', 'blogging'],
   published_date: new Date(Date.parse('2021-04-10T00:00:00.000Z')),
   toc: createTableOfContents(),
+  licenses: [createLicenseItem()],
   ...seed,
 });
 

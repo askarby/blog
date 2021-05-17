@@ -1,0 +1,27 @@
+<div class="container">
+  <app-social-media [socialMedia]="socialMedia"></app-social-media>
+
+  <section class="navigation">
+    <h2>Navigation</h2>
+    <app-navigation-list [menuItems]="menuItems"></app-navigation-list>
+  </section>
+
+  <section class="copyright">
+    <h2>Licensing / Copyright</h2>
+    <p>
+      The following list contains the licensing and attribution details, in
+      regards to copyrighted, 3rd-party items on the current page:
+    </p>
+    <ul>
+      <li *ngFor="let item of licenseItems">
+        <a class="item" [href]="item.url" target="_blank">{{
+          item.forItem | titlecase
+        }}</a>
+        <span class="license">
+          (<a [href]="item.licenseUrl" target="_blank">{{ item.licenseType }}</a
+          >)</span
+        >
+      </li>
+    </ul>
+  </section>
+</div>

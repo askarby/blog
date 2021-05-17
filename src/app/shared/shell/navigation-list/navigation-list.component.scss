@@ -78,3 +78,33 @@
     }
   }
 }
+
+:host-context(app-page-footer) {
+  a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .blog {
+    & > a:hover,
+    & > a.active {
+      color: colors.clr(blog);
+    }
+  }
+
+  .presentations {
+    & > a:hover,
+    & > a.active {
+      color: colors.clr(presentations);
+    }
+  }
+
+  .about {
+    & > a:hover,
+    & > a.active {
+      color: colors.clr(about);
+    }
+  }
+}

@@ -9,6 +9,8 @@ import { NavigationListComponent } from './shell/navigation-list/navigation-list
 import { DOCUMENT_TOKEN, ENVIRONMENT_TOKEN, WINDOW_TOKEN } from './di.tokens';
 import { environment } from '../../environments/environment';
 import { MonthNamePipe } from './pipes/month-name.pipe';
+import { PageFooterComponent } from './shell/page-footer/page-footer.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule, ScullyLibModule, FontAwesomeModule],
@@ -17,8 +19,15 @@ import { MonthNamePipe } from './pipes/month-name.pipe';
     SlideOutMenuComponent,
     NavigationListComponent,
     MonthNamePipe,
+    PageFooterComponent,
+    SocialMediaComponent,
   ],
-  exports: [NavigationBarComponent, SlideOutMenuComponent, MonthNamePipe],
+  exports: [
+    NavigationBarComponent,
+    SlideOutMenuComponent,
+    MonthNamePipe,
+    PageFooterComponent,
+  ],
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders<SharedModule> {
