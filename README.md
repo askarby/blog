@@ -20,6 +20,16 @@ npm install
 
 **Pro-tip**: You can get additional information about available [scripts](#scripts) by consulting the [Scripts](#scripts)-section below!
 
+### VCS guide-lines
+
+All commit messages, made to this project, are to follow the conventions set by [Conventional Commits][conventional-commits].
+
+Linting has been configured on the `pre-commit` [Git hook][git-hooks], hence you shouldn't be able to break these conventions,
+unless you commit with the `--no-verify`-flag (which is highly discouraged).
+
+(yes, initial commits of this repository didn't follow these guide-lines, hence you'll see some commit messages that
+did not follow these conventions, but these are limited to early commits in the repository)
+
 ### Tooling
 
 This blog uses the following libraries and tools (not a complete list, by any means):
@@ -35,6 +45,7 @@ This blog uses the following libraries and tools (not a complete list, by any me
 | [lint-staged]          | To perform incremental linting on [git]'s `pre-commit` hook                                  |
 | [Cypress.io][cypress]  | For testing the blog "on the glass" (E2E-test), without having too bad a time                |
 | [Jest][jest]           | For unit testing (quickly, in a virtual DOM)                                                 |
+| [commitlint]           | For linting commit messages (to adhere to [Conventional Commits][conventional-commits]       |
 
 ### Scripts
 
@@ -139,3 +150,6 @@ Completed items:
 [jamstack]: https://jamstack.org/
 [git]: https://git-scm.com/
 [jest]: https://jestjs.io/
+[commitlint]: https://github.com/conventional-changelog/commitlint
+[conventional-commits]: https://www.conventionalcommits.org
+[git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
