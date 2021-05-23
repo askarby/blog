@@ -3,17 +3,24 @@
 
 header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 
-  padding: 5rem;
   margin-bottom: 2rem;
+  padding: 2rem;
 
   width: 100%;
 
   background-image: url("/assets/images/about-hero-image.jpeg");
   background-size: cover;
   background-position: center;
+
+  @include responsive.media("screen", ">=tablet") {
+    flex-direction: row;
+    gap: 5rem;
+  }
 
   h1 {
     font-weight: 500;
@@ -27,7 +34,6 @@ header {
   }
 
   img {
-    margin-left: 5rem;
     border-radius: 50%;
   }
 }

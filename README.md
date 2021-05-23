@@ -105,7 +105,6 @@ Still missing:
 
 - [ ] Search-functionality
 - [ ] Upgrade to Angular 12 (and newest version of Scully)
-- [ ] Fix issue with mobile layout (header) of "About"-page
 - [ ] Add ability to discard side-nav by clicking upon "content"
 - [ ] Unit tests - writing the actual tests
   - This is "catching up" on initial "things" that have no tests
@@ -134,6 +133,7 @@ Still missing:
 
 Completed items:
 
+- [x] Fix issue with mobile layout (header) of "About"-page
 - [x] Footer
 - [x] Copyright
   - Source code -> open source (MIT licensed?)
