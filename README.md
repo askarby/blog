@@ -24,11 +24,24 @@ npm install
 
 All commit messages, made to this project, are to follow the conventions set by [Conventional Commits][conventional-commits].
 
-Linting has been configured on the `pre-commit` [Git hook][git-hooks], hence you shouldn't be able to break these conventions,
+Linting has been configured on the `commit-msg` [Git hook][git-hooks], hence you shouldn't be able to break these conventions,
 unless you commit with the `--no-verify`-flag (which is highly discouraged).
 
 (yes, initial commits of this repository didn't follow these guide-lines, hence you'll see some commit messages that
 did not follow these conventions, but these are limited to early commits in the repository)
+
+#### Configured git hooks
+
+This blog has a couple of git hooks configured. These git hooks exist to get a quick feedback loop. By-passing the hooks will not let you
+break any rules, as the same checks are enforced by the CI.
+
+The list of configured git hooks are as follows:
+
+| Git Hook     | Configured behavior                                                                                        |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| `commit-msg` | Performs linting of commit messages, based on the convention: [Conventional Commits][conventional-commits] |
+| `pre-commit` | Lints all staged files                                                                                     |
+| `pre-push`   | Executes all unit test (E2E tests are not included in this, but they **are** run on the CI!)               |
 
 ### Tooling
 
