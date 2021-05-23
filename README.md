@@ -34,6 +34,7 @@ This blog uses the following libraries and tools (not a complete list, by any me
 | [ESLint][eslint]       | To avoid concerning myself with code issues that can be prevented by static analysis         |
 | [lint-staged]          | To perform incremental linting on [git]'s `pre-commit` hook                                  |
 | [Cypress.io][cypress]  | For testing the blog "on the glass" (E2E-test), without having too bad a time                |
+| [Jest][jest]           | For unit testing (quickly, in a virtual DOM)                                                 |
 
 ### Scripts
 
@@ -137,3 +138,4 @@ Completed items:
 [cypress]: https://www.cypress.io/
 [jamstack]: https://jamstack.org/
 [git]: https://git-scm.com/
+[jest]: https://jestjs.io/
