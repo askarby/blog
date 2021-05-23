@@ -14,7 +14,8 @@
     "scully": "npx scully",
     "scully:serve": "npx scully serve",
     "scully:full-build": "npm run clean && npm run build && npm run scully -- --scanRoutes",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dist": "npm run clean && npm run build:prod && npm run scully -- --scanRoutes"
   },
   "private": true,
   "dependencies": {
