@@ -1,7 +1,7 @@
 ---
 title: "Restarting the blog, again"
 description: On restarting my blog, again... 5-and-a-half years after my last post
-image: "/assets/2018/trippy.jpg"
+image: "2018/trippy.jpg"
 category: "blog"
 twitter_text: skarby.info blog post on restarting the blog, again
 introduction: 5-and-a-half years has passed, it's time to bring this blog "back to life", by adding new content.

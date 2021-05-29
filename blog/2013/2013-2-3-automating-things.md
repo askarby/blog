@@ -1,7 +1,7 @@
 ---
 title: "Automating things"
 description: On automating things.
-image: "/assets/2013/robot.jpg"
+image: "2013/robot.jpg"
 category: "java"
 tags: "scripting"
 twitter_text: skarby.info blog post on automating things.

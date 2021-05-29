@@ -1,7 +1,7 @@
 ---
 title: "I restart this blog more often than I restart Windows"
 description: On restarting my blog.
-image: "/assets/2011/ctrl-alt-delete.png"
+image: "2011/ctrl-alt-delete.png"
 category: "blog"
 tags: "rant"
 twitter_text: skarby.info blog post on restarting the blog

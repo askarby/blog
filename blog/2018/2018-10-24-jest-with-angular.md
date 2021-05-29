@@ -1,7 +1,7 @@
 ---
 title: "Jest with Angular"
 description: A "step-by-step" guide on testing your Angular application with Jest.
-image: "/assets/2018/jest-angular.jpg"
+image: "2018/jest-angular.jpg"
 category: "angular"
 tags: "angular jest test"
 twitter_text: skarby.info blog post on testing Angular applications with Jest

@@ -19,6 +19,7 @@ describe('mapToPost operator', () => {
       tags: ['a', 'b', 'c'],
       // eslint-disable-next-line @typescript-eslint/naming-convention
       published_date: publishedAt,
+      image: '2011/some-image.jpg',
     });
   });
 
@@ -36,6 +37,15 @@ describe('mapToPost operator', () => {
       .pipe(mapToPost())
       .subscribe((post) => {
         expect(post.published_date).toEqual(publishedAt);
+        done();
+      });
+  });
+
+  it('should map image to be prefixed with "assets"', (done) => {
+    of(route)
+      .pipe(mapToPost())
+      .subscribe((post) => {
+        expect(post.image).toEqual(`/assets/2011/some-image.jpg`);
         done();
       });
   });

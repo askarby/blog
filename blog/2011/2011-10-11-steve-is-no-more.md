@@ -1,7 +1,7 @@
 ---
 title: "Steve is no more"
 description: The death of Steve Jobs.
-image: "/assets/2011/steve-jobs.jpg"
+image: "2011/steve-jobs.jpg"
 category: "people"
 tags: "rant"
 twitter_text: skarby.info blog post on the un-timely death of Steve Jobs

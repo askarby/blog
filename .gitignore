@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /src/assets/scully-routes.json
+/blog/**/*.thumbnail.*
 /scully/plugins/*.js
 /scully/plugins/*.js.map
 
