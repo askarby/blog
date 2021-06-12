@@ -1,2 +1,32 @@
-<h1>Welcome</h1>
-<p>Welcome to blog.skarby.info</p>
+<section class="new-posts">
+  <header>
+    <h1>
+      {{ environment.frontPage.numberOfNewestPosts }} newest blog posts...
+    </h1>
+    <a routerLink="/blog">All posts...</a>
+  </header>
+  <app-new-posts
+    [posts]="newestPosts$ | async"
+    [timeBetween]="environment.frontPage.timeBetweenPostChange"
+  ></app-new-posts>
+</section>
+
+<section class="about-the-blog">
+  <h1>A blog about</h1>
+  <p>
+    This blog is about software development, technical subjects and related
+    topics in the same area. The topics to be covered can be, but are not
+    limited to:
+  </p>
+  <ul>
+    <li>Angular</li>
+    <li>Java</li>
+    <li>Web development (in general, such as HTML, CSS etc.)</li>
+    <li>Interesting libraries and technologies</li>
+    <li>Software utilities (useful for development)</li>
+  </ul>
+  <p>
+    You can read my posts by clicking upon one of the images above, or go to the
+    <a routerLink="/blog">blog listing</a>-page.
+  </p>
+</section>

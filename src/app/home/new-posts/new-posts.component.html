@@ -1,0 +1,18 @@
+<ul>
+  <li
+    *ngFor="let post of posts"
+    (click)="currentPost = post"
+    [class.selected]="currentPost === post"
+  >
+    <img [src]="post.thumbnail" />
+  </li>
+</ul>
+
+<article *ngIf="currentPost as current" [routerLink]="current.route">
+  <img [src]="current.image" />
+
+  <div class="info">
+    <h1>{{ current.title }}</h1>
+    <p>{{ current.description }}</p>
+  </div>
+</article>

@@ -47,4 +47,9 @@ export const sharedEnvironment: Omit<Environment, 'production'> = {
       url: 'https://fontawesome.com/icons?d=gallery&p=2&m=free',
     },
   ],
+
+  frontPage: {
+    numberOfNewestPosts: 3,
+    timeBetweenPostChange: 5000,
+  },
 };

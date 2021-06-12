@@ -1,0 +1,82 @@
+@use 'colors';
+@use 'include-media' as responsive;
+
+.new-posts {
+  display: block;
+
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+
+  background-image: url("/assets/images/blog-hero-image.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    color: #fff;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+
+    a:visited,
+    a:focus {
+      display: inline-block;
+      color: #fff;
+    }
+  }
+}
+
+header,
+app-new-posts,
+.about-the-blog {
+  max-width: 40rem;
+  margin: 0 auto;
+
+  @include responsive.media("screen", ">=desktop") {
+    max-width: 55rem;
+  }
+}
+
+.about-the-blog {
+  padding: 0.5rem 0.5rem 2.5rem 0.5rem;
+
+  h1 {
+    color: colors.clr(blog);
+  }
+
+  p,
+  li {
+    font-size: 1.2rem;
+    line-height: 1.75rem;
+  }
+
+  ul {
+    display: block;
+    list-style-type: disc;
+
+    padding: 2rem;
+  }
+
+  p + p {
+    margin-bottom: 1rem;
+  }
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}

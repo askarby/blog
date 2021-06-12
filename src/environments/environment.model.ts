@@ -18,6 +18,8 @@ export interface Environment {
   websites: Websites;
 
   globalLicenses: LicenseItem[];
+
+  frontPage: FrontPage;
 }
 
 export interface SocialMedia {
@@ -32,4 +34,9 @@ export interface Websites {
   blog: string;
   own: string;
   company: string;
+}
+
+export interface FrontPage {
+  numberOfNewestPosts: number;
+  timeBetweenPostChange: number;
 }

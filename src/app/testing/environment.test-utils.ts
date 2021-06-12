@@ -54,5 +54,10 @@ export const createEnvironment = (
     },
   ],
 
+  frontPage: {
+    numberOfNewestPosts: 3,
+    timeBetweenPostChange: 5000,
+  },
+
   ...seed,
 });
