@@ -45,7 +45,7 @@ class DateBuilder {
 
   withDay(dayOfMonth: number): DateBuilder {
     this.dayOfMonth = validateRange(dayOfMonth, {
-      min: 0,
+      min: 1,
       max: 31,
       name: 'day of month',
     });
