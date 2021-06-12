@@ -1,5 +1,6 @@
 import 'jest-preset-angular/setup-jest';
 import { toBeAnyOf } from './src/app/testing/matchers/to-be-any-of.matcher';
+import { toStartWith } from './src/app/testing/matchers/to-start-with.matcher';
 
 /* global mocks for jsdom */
 const mock = () => {
@@ -34,9 +35,11 @@ declare global {
   namespace jest {
     interface Matchers<R> {
       toBeAnyOf(expected: any[]): CustomMatcherResult;
+      toStartWith(expected: string): CustomMatcherResult;
     }
   }
 }
 expect.extend({
   toBeAnyOf,
+  toStartWith,
 });
