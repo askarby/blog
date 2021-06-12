@@ -38,9 +38,14 @@ export interface Post extends ScullyRoute {
   description: string;
 
   /**
-   * Image of post.
+   * Path to image of the post.
    */
   image: string;
+
+  /**
+   * Path to thumbnail (of image) of the post.
+   */
+  thumbnail: string;
 
   /**
    * The date the post was published.

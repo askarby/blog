@@ -14,6 +14,7 @@ export const createPost = (seed: Partial<Post> = {}): Post => ({
   sourceFile: '/blog/2021/2021-04-10-how-to-write-a-good-blog-post.md',
   lang: 'en',
   image: '/assets/2021/write.jpg',
+  thumbnail: '/assets/2021/write.thumbnail.jpg',
   tags: ['writing', 'blogging'],
   published_date: new Date(Date.parse('2021-04-10T00:00:00.000Z')),
   toc: createTableOfContents(),

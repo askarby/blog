@@ -11,8 +11,8 @@ const routeToPost = (route: ScullyRoute): Post => {
       post.tags = value.split(' ');
     } else if (key === 'published_date') {
       post.published_date = new Date(value);
-    } else if (key === 'image') {
-      post.image = `/assets/${value}`;
+    } else if (['image', 'thumbnail'].includes(key)) {
+      post[key] = `/assets/${value}`;
     } else {
       post[key] = value;
     }

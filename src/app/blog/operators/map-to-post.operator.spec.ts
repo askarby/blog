@@ -20,6 +20,7 @@ describe('mapToPost operator', () => {
       // eslint-disable-next-line @typescript-eslint/naming-convention
       published_date: publishedAt,
       image: '2011/some-image.jpg',
+      thumbnail: '2011/some-image.thumbnail.jpg',
     });
   });
 
@@ -41,12 +42,14 @@ describe('mapToPost operator', () => {
       });
   });
 
-  it('should map image to be prefixed with "assets"', (done) => {
-    of(route)
-      .pipe(mapToPost())
-      .subscribe((post) => {
-        expect(post.image).toEqual(`/assets/2011/some-image.jpg`);
-        done();
-      });
+  ['image', 'thumbnail'].forEach((assetKey) => {
+    it(`should map ${assetKey} to be prefixed with "assets"`, (done) => {
+      of(route)
+        .pipe(mapToPost())
+        .subscribe((post) => {
+          expect(post[assetKey]).toStartWith(`/assets/`);
+          done();
+        });
+    });
   });
 });
