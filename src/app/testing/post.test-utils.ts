@@ -19,6 +19,7 @@ export const createPost = (seed: Partial<Post> = {}): Post => ({
   published_date: new Date(Date.parse('2021-04-10T00:00:00.000Z')),
   toc: createTableOfContents(),
   licenses: [createLicenseItem()],
+  readingTime: 42,
   ...seed,
 });
 

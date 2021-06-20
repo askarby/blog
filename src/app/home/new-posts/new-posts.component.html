@@ -1,15 +1,15 @@
 <ul>
   <li
-    *ngFor="let post of posts"
-    (click)="currentPost = post"
+    *ngFor="let post of posts; let index = index"
+    (click)="currentPost = post; startTimer()"
     [class.selected]="currentPost === post"
   >
-    <img [src]="post.thumbnail" />
+    <img [alt]="'Thumbnail #' + index" [src]="post.thumbnail" />
   </li>
 </ul>
 
 <article *ngIf="currentPost as current" [routerLink]="current.route">
-  <img [src]="current.image" />
+  <img alt="Post image" [src]="current.image" />
 
   <div class="info">
     <h1>{{ current.title }}</h1>

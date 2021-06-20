@@ -99,17 +99,12 @@ This is the checklist of action items remaining, for the blog to function as exp
 
 In progress:
 
-- [ ] Home (welcome) page
+- [ ] Upgrade to Angular 12 (and newest version of Scully)
 
 Still missing:
 
 - [ ] Search-functionality
-- [ ] Upgrade to Angular 12 (and newest version of Scully)
 - [ ] Add ability to discard side-nav by clicking upon "content"
-- [ ] Unit tests - writing the actual tests
-  - This is "catching up" on initial "things" that have no tests
-    - New functionality should have tests (since we're out of the "starting project"-phase)
-  - Don't go overboard (pls!)
 - [ ] E2E tests
   - [ ] Setting up Cypress
   - [ ] Writing the actual tests
@@ -121,18 +116,28 @@ Still missing:
 - [ ] Analytics (tracking)
   - [ ] Actual integration configuration
   - [ ] Cookie consent
+    - https://www.osano.com/cookieconsent/documentation/javascript-api/
+    - https://github.com/osano/cookieconsent/
+    - https://stackoverflow.com/questions/60173853/how-to-set-the-google-analytics-cookie-only-after-another-consent-cookie-is-set
 - [ ] Indication of "which post is new"
   - Display it with "a badge"
   - New posts are "released less than a month ago"
     - Based on Browser's (device's) date
+    - "A month" is read from environment (hence, adjustable)
   - Show on "blog listings"-page
   - Show on "Home (welcome)"-page
 - [ ] Clean-up / refactor SCSS-styles
   - Loads of repeated code, in regard to layout (copy and pasted between Component's SCSS-files)
   - Add stylelint for linting!
+- [ ] Mark posts to "read later"
 
 Completed items:
 
+- [x] Unit tests - writing the actual tests
+  - This is "catching up" on initial "things" that have no tests
+    - New functionality should have tests (since we're out of the "starting project"-phase)
+  - Don't go overboard (pls!)
+- [x] Home (welcome) page
 - [x] Fix issue with mobile layout (header) of "About"-page
 - [x] Footer
 - [x] Copyright

@@ -97,4 +97,10 @@ describe('HomeComponent', () => {
       });
     });
   });
+
+  describe('about section', () => {
+    it('should display an "about"-section', () => {
+      expect(spectator.query('section.about-the-blog')).not.toBeNull();
+    });
+  });
 });

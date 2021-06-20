@@ -77,4 +77,9 @@ export interface Post extends ScullyRoute {
    * (when absent, this will produce an empty array of `LicenseItem`s).
    */
   licenses: LicenseItem[];
+
+  /**
+   * Number of minutes the post takes to read.
+   */
+  readingTime: number;
 }

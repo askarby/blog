@@ -5,12 +5,11 @@ import {
   Input,
   OnChanges,
   OnDestroy,
-  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { interval, Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-posts',
@@ -18,7 +17,7 @@ import { takeUntil, tap } from 'rxjs/operators';
   styleUrls: ['./new-posts.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NewPostsComponent implements OnInit, OnChanges, OnDestroy {
+export class NewPostsComponent implements OnChanges, OnDestroy {
   @Input()
   posts!: Post[] | null;
 
@@ -31,25 +30,27 @@ export class NewPostsComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private changeDetector: ChangeDetectorRef) {}
 
-  ngOnInit(): void {
-    interval(this.timeBetween)
-      .pipe(
-        takeUntil(this.destroy$),
-        tap(() => this.selectNextPost())
-      )
-      .subscribe();
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
     const { posts } = changes;
     if (posts?.currentValue) {
       this.currentPost = posts.currentValue[0];
+      this.startTimer();
     }
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  startTimer() {
+    // Stop currently running timer (if none is running, this has no effect)
+    this.destroy$.next();
+
+    // Start a new interval timer
+    interval(this.timeBetween)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => this.selectNextPost());
   }
 
   private selectNextPost() {
