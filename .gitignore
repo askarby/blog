@@ -8,6 +8,7 @@
 /blog/**/*.thumbnail.*
 /scully/plugins/*.js
 /scully/plugins/*.js.map
+scully.blog.config.js
 
 # dependencies
 /node_modules
