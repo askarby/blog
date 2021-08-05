@@ -10,11 +10,13 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: Setup Node, and install packages
+      - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: "14"
           cache: "npm"
+
+      - name: Install NPM packages
         run: npm install
 
       - name: Run unit-tests
