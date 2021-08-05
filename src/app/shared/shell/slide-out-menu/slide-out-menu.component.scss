@@ -3,6 +3,18 @@
 @use 'include-media' as responsive;
 
 :host {
+  @include responsive.media("screen", ">=tablet") {
+    display: none;
+  }
+}
+
+aside {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
   // Positioning
   position: fixed;
   left: -15rem;
@@ -22,18 +34,6 @@
     left: 0;
     border-right: 1px solid #141414;
   }
-
-  @include responsive.media("screen", ">=tablet") {
-    display: none;
-  }
-}
-
-aside {
-  // Layout
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
 
   header {
     // Layout
@@ -71,4 +71,14 @@ aside {
 
     width: 100%;
   }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 19;
 }

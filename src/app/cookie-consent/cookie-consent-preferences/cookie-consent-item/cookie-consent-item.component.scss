@@ -16,3 +16,13 @@ app-toggle-switch {
   align-self: flex-end;
   margin-top: 0.5rem;
 }
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  z-index: 19;
+}

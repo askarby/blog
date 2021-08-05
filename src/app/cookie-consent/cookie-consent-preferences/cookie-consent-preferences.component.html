@@ -1,4 +1,4 @@
-<aside>
+<aside [class.shown]="consentService.displayConsentPreferences$ | async">
   <!-- Header -->
   <header>
     <h1>Cookies</h1>
@@ -22,3 +22,9 @@
     <button (click)="approveAll()" class="approve primary">Accept All</button>
   </footer>
 </aside>
+
+<div
+  *ngIf="consentService.displayConsentPreferences$ | async"
+  class="backdrop"
+  (click)="consentService.hideConsentPreferences()"
+></div>

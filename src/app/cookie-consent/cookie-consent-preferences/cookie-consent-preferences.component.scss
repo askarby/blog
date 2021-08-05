@@ -2,7 +2,13 @@
 @use 'colors';
 @use 'include-media' as responsive;
 
-:host {
+aside {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
   // Positioning
   position: fixed;
   right: -15rem;
@@ -24,69 +30,71 @@
   }
 }
 
-aside {
+header {
   // Layout
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  height: 100%;
+  gap: 1rem;
+  padding: 0.625rem 0.938rem;
 
-  header {
-    // Layout
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.625rem 0.938rem;
+  @include responsive.media("screen", ">=tablet") {
+    padding: 0.9rem 1rem;
+  }
 
-    @include responsive.media("screen", ">=tablet") {
-      padding: 0.9rem 1rem;
-    }
+  // Colors and font
+  background-color: #141414;
+  color: white;
+  font-size: 2rem;
 
-    // Colors and font
-    background-color: #141414;
+  a {
     color: white;
-    font-size: 2rem;
-
-    a {
-      color: white;
-      text-decoration: none;
-    }
-
-    fa-icon {
-      display: block;
-
-      font-size: 1.5rem;
-      line-height: 2rem;
-    }
+    text-decoration: none;
   }
 
-  .cookies {
-    // Layout
-    flex-grow: 1;
-    padding: 0 0.5rem;
+  fa-icon {
+    display: block;
 
-    app-cookie-consent-item {
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-    }
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.cookies {
+  // Layout
+  flex-grow: 1;
+  padding: 0 0.5rem;
+
+  app-cookie-consent-item {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+footer {
+  // Layout
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  padding: 0.625rem 0.938rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding: 0.9rem 1rem;
   }
 
-  footer {
-    // Layout
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 0.5rem;
-    padding: 0.625rem 0.938rem;
+  // Colors and font
+  background-color: #141414;
+  color: white;
+  font-size: 2rem;
+}
 
-    @include responsive.media("screen", ">=tablet") {
-      padding: 0.9rem 1rem;
-    }
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
-    // Colors and font
-    background-color: #141414;
-    color: white;
-    font-size: 2rem;
-  }
+  z-index: 19;
 }

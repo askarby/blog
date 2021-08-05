@@ -13,3 +13,5 @@
     <app-social-media [socialMedia]="socialMedia"></app-social-media>
   </footer>
 </aside>
+
+<div *ngIf="menuShown" class="backdrop" (click)="closeMenu.emit()"></div>

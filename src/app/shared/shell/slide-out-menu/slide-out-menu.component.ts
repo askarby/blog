@@ -4,10 +4,8 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
   Output,
   Renderer2,
-  SimpleChanges,
 } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -26,7 +24,7 @@ import { SocialMedia } from '../../../../environments/environment.model';
   styleUrls: ['./slide-out-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SlideOutMenuComponent implements OnChanges {
+export class SlideOutMenuComponent {
   @Input()
   menuItems!: (InternalLink | ExternalLink)[];
 
@@ -53,16 +51,5 @@ export class SlideOutMenuComponent implements OnChanges {
   constructor(private hostElementRef: ElementRef, private renderer: Renderer2) {
     this.menuShown = false;
     this.closeMenu = new EventEmitter<void>();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    const { menuShown } = changes;
-    if (menuShown) {
-      if (menuShown.currentValue) {
-        this.renderer.addClass(this.hostElementRef.nativeElement, 'shown');
-      } else {
-        this.renderer.removeClass(this.hostElementRef.nativeElement, 'shown');
-      }
-    }
   }
 }
