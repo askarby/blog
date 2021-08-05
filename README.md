@@ -99,7 +99,10 @@ This is the checklist of action items remaining, for the blog to function as exp
 
 In progress:
 
-- [ ] Add ability to discard side-nav by clicking upon "content"
+- [ ] Github actions
+  - [ ] Run unit tests
+  - [ ] Run E2E tests
+  - [ ] Deploy to github pages
 
 Still missing:
 
@@ -108,10 +111,6 @@ Still missing:
   - [ ] Setting up Cypress
   - [ ] Writing the actual tests
 - [ ] Linting markdown files (checking that front-matter contains required things)
-- [ ] Github actions
-  - [ ] Run unit tests
-  - [ ] Run E2E tests
-  - [ ] Deploy to github pages
 - [ ] Indication of "which post is new"
   - Display it with "a badge"
   - New posts are "released less than a month ago"
@@ -123,9 +122,15 @@ Still missing:
   - Loads of repeated code, in regard to layout (copy and pasted between Component's SCSS-files)
   - Add stylelint for linting!
 - [ ] Mark posts to "read later"
+- [ ] Bug report template
+  - Since this is not an interactive site, we need to utilize Github's issues for improvements, eg.:
+    - Create template for content bug
+    - Create template for site / functionality bug
+    - Add reference to template content bug on blog-posts page
 
 Completed items:
 
+- [ ] Add ability to discard side-nav by clicking upon "content"
 - [x] Analytics (tracking)
   - [x] Actual integration configuration
   - [x] Cookie consent
