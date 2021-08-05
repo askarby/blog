@@ -1,13 +1,32 @@
 name: build-and-deploy
-on: [push]
+on:
+  push:
+    branches:
+      - master
 jobs:
-  check-bats-version:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Setup Node, and install packages
+        uses: actions/setup-node@v2
         with:
           node-version: "14"
           cache: "npm"
-      - run: npm install
-      - run: npm test
+        run: npm install
+
+      - name: Run unit-tests
+        run: npm test
+
+      - name: Build distribution
+        run: npm run dist
+
+      - name: Deploy to GH-pages
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_BRANCH: master # The branch the action should deploy from.
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist/static # The folder the action should deploy.
