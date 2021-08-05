@@ -1,7 +1,9 @@
 <app-navigation-bar
   [siteName]="environment.site.name"
   [menuItems]="environment.links"
-  (menuTriggerClicked)="toggleMenu()"
+  [displayCookieAccess]="displayCookieAccess$ | async"
+  (showMenu)="toggleMenu()"
+  (showCookiePreferences)="toggleCookiePreferences()"
 ></app-navigation-bar>
 
 <app-slide-out-menu
@@ -21,4 +23,8 @@
     [menuItems]="environment.links"
     [licenseItems]="licenseItems$ | async"
   ></app-page-footer>
+
+  <app-cookie-consent-bar></app-cookie-consent-bar>
 </section>
+
+<app-cookie-consent-preferences></app-cookie-consent-preferences>

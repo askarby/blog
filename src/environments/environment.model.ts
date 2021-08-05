@@ -20,6 +20,8 @@ export interface Environment {
   globalLicenses: LicenseItem[];
 
   frontPage: FrontPage;
+
+  analytics: Analytics;
 }
 
 export interface SocialMedia {
@@ -39,4 +41,8 @@ export interface Websites {
 export interface FrontPage {
   numberOfNewestPosts: number;
   timeBetweenPostChange: number;
+}
+
+export interface Analytics {
+  googleAnalyticsTrackingId: string;
 }

@@ -17,9 +17,13 @@ import { Environment } from '../environments/environment.model';
 import { LicenseItem } from './models/license-info.model';
 import { createLicenseItem } from './testing/license.test-util';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { CookieConsentBarComponent } from './cookie-consent/cookie-consent-bar/cookie-consent-bar.component';
+import { CookieConsentPreferencesComponent } from './cookie-consent/cookie-consent-preferences/cookie-consent-preferences.component';
+import { CookieConsentService } from './cookie-consent/cookie-consent.service';
 
 describe('AppComponent', () => {
   const licenses = new BehaviorSubject<LicenseItem[]>([]);
+  const displayConsentBar = new Subject<boolean>();
   const routerEvents = new Subject<RouterEvent>();
 
   const createComponent = createComponentFactory({
@@ -29,7 +33,9 @@ describe('AppComponent', () => {
         RouterOutlet,
         NavigationBarComponent,
         SlideOutMenuComponent,
-        PageFooterComponent
+        PageFooterComponent,
+        CookieConsentBarComponent,
+        CookieConsentPreferencesComponent
       ),
     ],
     providers: [
@@ -44,6 +50,11 @@ describe('AppComponent', () => {
       }),
       mockProvider(Router, {
         events: routerEvents.asObservable(),
+      }),
+      mockProvider(CookieConsentService, {
+        get displayConsentBar$(): Observable<boolean> {
+          return displayConsentBar.asObservable();
+        },
       }),
     ],
   });
@@ -77,7 +88,7 @@ describe('AppComponent', () => {
         url: '/some-url/of-lesser-importance',
       });
 
-      expect(component.menuShown).toBe(false);
+      expect(component.menuShown).toBeFalse();
     });
   });
 
@@ -103,7 +114,7 @@ describe('AppComponent', () => {
     it('should toggle the menu, when a menu item is triggered', () => {
       jest.spyOn(component, 'toggleMenu');
 
-      navigationBar?.menuTriggerClicked.emit();
+      navigationBar?.showMenu.emit();
 
       expect(component.toggleMenu).toHaveBeenCalled();
     });

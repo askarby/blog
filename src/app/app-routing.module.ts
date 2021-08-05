@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LegacyUrlLookupGuard } from './not-found/legacy-url-lookup.guard';
+import { CookieConsentModule } from './cookie-consent/cookie-consent.module';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), CookieConsentModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

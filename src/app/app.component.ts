@@ -4,8 +4,9 @@ import { Environment } from '../environments/environment.model';
 import { LicenseInfoService } from './shared/services/license-info.service';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import { LicenseItem } from './models/license-info.model';
+import { CookieConsentService } from './cookie-consent/cookie-consent.service';
 
 @Component({
   selector: 'app-root',
@@ -15,15 +16,20 @@ import { LicenseItem } from './models/license-info.model';
 export class AppComponent implements OnInit, OnDestroy {
   menuShown = false;
   licenseItems$: Observable<LicenseItem[]>;
+  displayCookieAccess$: Observable<boolean>;
 
   private destroy$ = new Subject<void>();
 
   constructor(
     @Inject(ENVIRONMENT_TOKEN) public environment: Environment,
+    private cookieConsentService: CookieConsentService,
     private licenseInfoService: LicenseInfoService,
     private router: Router
   ) {
     this.licenseItems$ = licenseInfoService.activeRouteLicenses$;
+    this.displayCookieAccess$ = cookieConsentService.displayConsentBar$.pipe(
+      map((displayBar) => !displayBar)
+    );
   }
 
   ngOnInit(): void {
@@ -39,5 +45,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   toggleMenu(): void {
     this.menuShown = !this.menuShown;
+  }
+
+  toggleCookiePreferences() {
+    this.cookieConsentService.displayConsentPreferences();
   }
 }

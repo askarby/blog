@@ -1,0 +1,88 @@
+@use 'effects';
+@use 'colors';
+@use 'include-media' as responsive;
+
+:host {
+  // Positioning
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+
+  // Layout
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625rem 0.938rem;
+
+  // Colors and font
+  background-color: #141414;
+  color: white;
+  border-top: 1px solid #545454;
+
+  @include responsive.media("screen", ">=tablet") {
+    // Layout
+    padding: 0.9rem 1rem;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+h1 {
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+
+  white-space: nowrap;
+}
+
+p {
+  flex-grow: 2;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+small {
+  display: block;
+  margin-top: 0.5rem;
+
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #737373;
+}
+
+.actions {
+  // Layout
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "decline approve"
+    "link link";
+  align-self: center;
+
+  gap: 0.25rem;
+  min-width: 210px;
+
+  .decline {
+    grid-area: decline;
+  }
+
+  .approve {
+    grid-area: approve;
+  }
+
+  a {
+    grid-area: link;
+    justify-self: center;
+    align-self: start;
+
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: underline;
+
+    cursor: pointer;
+  }
+}

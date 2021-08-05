@@ -50,7 +50,10 @@
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "allowedCommonJsDependencies": [
+              "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
+            ]
           },
           "configurations": {
             "production": {

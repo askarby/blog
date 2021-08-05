@@ -2,7 +2,7 @@
 <fa-icon
   class="menu-toggle"
   [icon]="icons.menu"
-  (click)="menuTriggerClicked.emit()"
+  (click)="showMenu.emit()"
 ></fa-icon>
 
 <!-- Logo (navigation to / - home) -->
@@ -13,5 +13,12 @@
 <!-- Navigation items -->
 <app-navigation-list [menuItems]="menuItems"></app-navigation-list>
 
-<!-- Search-trigger -->
-<fa-icon [icon]="icons.search"></fa-icon>
+<!-- Cookies, Search etc. -->
+<div class="functionality">
+  <fa-icon
+    *ngIf="displayCookieAccess"
+    [icon]="icons.cookie"
+    (click)="showCookiePreferences.emit()"
+  ></fa-icon>
+  <fa-icon [icon]="icons.search"></fa-icon>
+</div>

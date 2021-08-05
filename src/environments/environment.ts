@@ -8,4 +8,7 @@ import { sharedEnvironment } from './_environment.shared';
 export const environment: Environment = {
   ...sharedEnvironment,
   production: false,
+  analytics: {
+    googleAnalyticsTrackingId: 'dummy-value',
+  },
 };

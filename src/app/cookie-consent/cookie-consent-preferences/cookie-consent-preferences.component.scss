@@ -1,0 +1,92 @@
+@use 'effects';
+@use 'colors';
+@use 'include-media' as responsive;
+
+:host {
+  // Positioning
+  position: fixed;
+  right: -15rem;
+  top: 0;
+  bottom: 0;
+  width: 14rem;
+  z-index: 20;
+
+  // Colors and fonts
+  background-color: #eeeeee;
+  box-shadow: 0.25rem 0 1rem 0 #242424;
+
+  // Animation
+  transition: right 0.2s ease-in-out;
+
+  &.shown {
+    right: 0;
+    border-right: 1px solid #141414;
+  }
+}
+
+aside {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  header {
+    // Layout
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.625rem 0.938rem;
+
+    @include responsive.media("screen", ">=tablet") {
+      padding: 0.9rem 1rem;
+    }
+
+    // Colors and font
+    background-color: #141414;
+    color: white;
+    font-size: 2rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    fa-icon {
+      display: block;
+
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  .cookies {
+    // Layout
+    flex-grow: 1;
+    padding: 0 0.5rem;
+
+    app-cookie-consent-item {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  footer {
+    // Layout
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+    padding: 0.625rem 0.938rem;
+
+    @include responsive.media("screen", ">=tablet") {
+      padding: 0.9rem 1rem;
+    }
+
+    // Colors and font
+    background-color: #141414;
+    color: white;
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,95 @@
+:host {
+  display: block;
+
+  --width: 50px;
+  --ball-diameter: 22px;
+  --height: calc(var(--width) - var(--ball-diameter));
+  --margin: calc((var(--height) - var(--ball-diameter)) / 2);
+
+  --background-color: #ccc;
+  --activated-background-color: #2196f3;
+  --disabled-background-color: #545454;
+  --ball-color: white;
+  --disabled-ball-color: #737373;
+
+  &.sm {
+    --width: 45px;
+    --ball-diameter: 20px;
+  }
+
+  &.lg {
+    --width: 55px;
+    --ball-diameter: 24px;
+  }
+
+  &.xl {
+    --width: 60px;
+    --ball-diameter: 26px;
+  }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  border-radius: var(--height);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--ball-diameter);
+  width: var(--ball-diameter);
+  left: var(--margin);
+  bottom: var(--margin);
+  background-color: var(--ball-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--activated-background-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(var(--ball-diameter));
+}
+
+input:disabled {
+  & + .slider {
+    background-color: var(--disabled-background-color) !important;
+  }
+
+  & + .slider:before {
+    background-color: var(--disabled-ball-color) !important;
+  }
+}

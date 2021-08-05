@@ -1,0 +1,28 @@
+button {
+  display: inline-block;
+
+  padding: 0.4em 0.75rem;
+  border-radius: 1rem;
+  border: 0;
+
+  background-color: #737373;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &.primary {
+    background-color: #24d035;
+  }
+
+  &.warning {
+    background-color: #d08c25;
+  }
+
+  &.danger {
+    background-color: #d03625;
+  }
+
+  &.block {
+    display: block;
+  }
+}

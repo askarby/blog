@@ -99,12 +99,11 @@ This is the checklist of action items remaining, for the blog to function as exp
 
 In progress:
 
-- [ ] Upgrade to Angular 12 (and newest version of Scully)
+- [ ] Add ability to discard side-nav by clicking upon "content"
 
 Still missing:
 
 - [ ] Search-functionality
-- [ ] Add ability to discard side-nav by clicking upon "content"
 - [ ] E2E tests
   - [ ] Setting up Cypress
   - [ ] Writing the actual tests
@@ -113,12 +112,6 @@ Still missing:
   - [ ] Run unit tests
   - [ ] Run E2E tests
   - [ ] Deploy to github pages
-- [ ] Analytics (tracking)
-  - [ ] Actual integration configuration
-  - [ ] Cookie consent
-    - https://www.osano.com/cookieconsent/documentation/javascript-api/
-    - https://github.com/osano/cookieconsent/
-    - https://stackoverflow.com/questions/60173853/how-to-set-the-google-analytics-cookie-only-after-another-consent-cookie-is-set
 - [ ] Indication of "which post is new"
   - Display it with "a badge"
   - New posts are "released less than a month ago"
@@ -133,6 +126,13 @@ Still missing:
 
 Completed items:
 
+- [x] Analytics (tracking)
+  - [x] Actual integration configuration
+  - [x] Cookie consent
+    - https://www.osano.com/cookieconsent/documentation/javascript-api/
+    - https://github.com/osano/cookieconsent/
+    - https://stackoverflow.com/questions/60173853/how-to-set-the-google-analytics-cookie-only-after-another-consent-cookie-is-set
+- [x] Upgrade to Angular 12 (and newest version of Scully)
 - [x] Unit tests - writing the actual tests
   - This is "catching up" on initial "things" that have no tests
     - New functionality should have tests (since we're out of the "starting project"-phase)

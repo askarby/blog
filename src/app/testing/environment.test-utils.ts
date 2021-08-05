@@ -59,5 +59,9 @@ export const createEnvironment = (
     timeBetweenPostChange: 5000,
   },
 
+  analytics: {
+    googleAnalyticsTrackingId: 'some-google-tracking-id',
+  },
+
   ...seed,
 });

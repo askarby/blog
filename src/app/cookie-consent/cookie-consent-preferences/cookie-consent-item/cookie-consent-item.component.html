@@ -1,0 +1,12 @@
+<h2>{{ item.provider.name }}</h2>
+<p>{{ item.provider.description }}</p>
+<p *ngIf="isUnmodifiable" class="is-default-item">
+  This cookie cannot be disabled!
+</p>
+
+<app-toggle-switch
+  class="sm"
+  [disabled]="isUnmodifiable"
+  [selection]="item.enabled"
+  (selectionChange)="setProvider($event)"
+></app-toggle-switch>

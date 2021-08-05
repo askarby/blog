@@ -4,9 +4,12 @@
 // Include layout
 @use "./partials/layout";
 
-// Fonts sand colors
+// Fonts and colors
 @use "./partials/fonts";
 @use "./shared/colors";
+
+// Forms
+@use "./partials/forms";
 
 // Prism
 @use '~prismjs/plugins/toolbar/prism-toolbar';
@@ -22,6 +25,5 @@
 
   // Configure current (default look of site), fallback!
   --current: #{colors.clr(primary)};
-
   --hover: #{colors.clr(hint, light)};
 }

@@ -1,6 +1,9 @@
 import { Environment } from './environment.model';
 
-export const sharedEnvironment: Omit<Environment, 'production'> = {
+export const sharedEnvironment: Omit<
+  Environment,
+  'production' | 'analytics'
+> = {
   site: {
     name: 'skarby.info',
   },

@@ -1,0 +1,20 @@
+<h1>This website uses cookies</h1>
+<p>
+  Some are used for basic functionality (what did you read, etc.), some are used
+  for analytics etc.
+
+  <small>
+    Don't worry, you are "opted out" (by default) and have to actively "opt in".
+    You can even choose which cookies you want to approve, and which to decline.
+  </small>
+</p>
+
+<section class="actions">
+  <button (click)="consentService.rejectAll()" class="decline">
+    Reject All
+  </button>
+  <button (click)="consentService.approveAll()" class="approve primary">
+    Accept All
+  </button>
+  <a (click)="consentService.displayConsentPreferences()">Customize...</a>
+</section>

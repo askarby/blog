@@ -1,0 +1,9 @@
+<label class="switch">
+  <input
+    type="checkbox"
+    [disabled]="disabled"
+    [checked]="selection"
+    (change)="selectionChange.emit(!selection)"
+  />
+  <span class="slider"></span>
+</label>

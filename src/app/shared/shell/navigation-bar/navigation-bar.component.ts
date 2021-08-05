@@ -6,6 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import {
+  faCookieBite,
   faHamburger,
   faSearch,
   faTimes,
@@ -26,16 +27,24 @@ export class NavigationBarComponent {
   @Input()
   menuItems!: (InternalLink | ExternalLink)[];
 
+  @Input()
+  displayCookieAccess!: boolean | null;
+
   @Output()
-  menuTriggerClicked: EventEmitter<void>;
+  showMenu: EventEmitter<void>;
+
+  @Output()
+  showCookiePreferences: EventEmitter<void>;
 
   icons = {
     menu: faHamburger,
     search: faSearch,
     close: faTimes,
+    cookie: faCookieBite,
   };
 
   constructor() {
-    this.menuTriggerClicked = new EventEmitter();
+    this.showMenu = new EventEmitter();
+    this.showCookiePreferences = new EventEmitter();
   }
 }
