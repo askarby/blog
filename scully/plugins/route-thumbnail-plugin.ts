@@ -157,7 +157,6 @@ const createThumbnail = async (
   }
 
   const containingFolder = path.dirname(outputPath);
-  console.log('BOOOYA -->', containingFolder);
   if (!existsSync(containingFolder)) {
     await fs.mkdir(containingFolder, { recursive: true });
   }
