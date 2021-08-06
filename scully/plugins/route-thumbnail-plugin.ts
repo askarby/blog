@@ -6,7 +6,7 @@ import {
 
 import sharp, { OutputInfo, ResizeOptions } from 'sharp';
 import * as path from 'path';
-import { constants, promises as fs } from 'fs';
+import { constants, existsSync, promises as fs } from 'fs';
 
 export const routeThumbnail = 'routeThumbnail';
 
@@ -132,20 +132,9 @@ const getThumbnailPaths = async (
   const thumbnailFilename = `${imageBasename}.thumbnail.${imageExtension}`;
   const thumbnailEntry = path.join(imageYear, thumbnailFilename);
 
-  const absoluteOutputPaths = [];
-
-  for (const location of locations) {
-    const dest = path.resolve(root, '..', location, thumbnailEntry);
-    absoluteOutputPaths.push(dest);
-
-    try {
-      await fs.access(dest, constants.W_OK);
-    } catch {
-      throw new Error(`Cannot write to output file "${dest}"`);
-    }
-  }
-
-  console.log(absoluteOutputPaths);
+  const absoluteOutputPaths = locations.map((location) =>
+    path.resolve(root, '..', location, thumbnailEntry)
+  );
 
   return {
     absoluteInputPath,
@@ -165,6 +154,12 @@ const createThumbnail = async (
   }
   if (options.output.height) {
     resizeTo.height = options.output.height;
+  }
+
+  const containingFolder = path.dirname(outputPath);
+  console.log('BOOOYA -->', containingFolder);
+  if (!existsSync(containingFolder)) {
+    await fs.mkdir(containingFolder, { recursive: true });
   }
 
   return await sharp(inputPath).resize(resizeTo).toFile(outputPath);
