@@ -33,5 +33,6 @@ setPluginConfig(routeThumbnail, {
   imageProperty: 'image',
   output: {
     width: 150,
+    locations: ['dist/static/assets', 'blog'],
   },
 } as RouteThumbnailOptions);

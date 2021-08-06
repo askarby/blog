@@ -34,7 +34,17 @@ export interface RouteThumbnailOptions {
      * the determining size factor
      */
     width?: number;
+
+    /*
+     * The desired height of the thumbnail.
+     */
     height?: number;
+
+    /**
+     * The desired output locations of the thumbnail. If omitted the
+     * generated thumbnail will be placed "next to" the original image.
+     */
+    locations?: string[];
   };
 }
 
@@ -65,10 +75,16 @@ const enhanceWithThumbnail = async (
   const imageEntry = route.data[options.imageProperty];
   const {
     absoluteInputPath,
-    absoluteOutputPath,
+    absoluteOutputPaths,
     thumbnailEntry,
-  } = await getThumbnailPaths(markdownFilePath, imageEntry);
-  await createThumbnail(absoluteInputPath, absoluteOutputPath, options);
+  } = await getThumbnailPaths(
+    markdownFilePath,
+    imageEntry,
+    options.output.locations
+  );
+  for (const destination of absoluteOutputPaths) {
+    await createThumbnail(absoluteInputPath, destination, options);
+  }
 
   return {
     ...route,
@@ -81,10 +97,11 @@ const enhanceWithThumbnail = async (
 
 const getThumbnailPaths = async (
   markdownFilePath: string,
-  imageEntry: string
+  imageEntry: string,
+  locations: string[]
 ): Promise<{
   absoluteInputPath: string;
-  absoluteOutputPath: string;
+  absoluteOutputPaths: string[];
   thumbnailEntry: string;
 }> => {
   const patternFile = /(.*)(\d{4})\/(.*\..*)/;
@@ -109,19 +126,30 @@ const getThumbnailPaths = async (
     throw new Error(`Cannot read from input file "${absoluteInputPath}"`);
   }
 
+  if (!locations || locations.length < 1) {
+    locations = ['blog'];
+  }
   const thumbnailFilename = `${imageBasename}.thumbnail.${imageExtension}`;
   const thumbnailEntry = path.join(imageYear, thumbnailFilename);
-  const thumbnailDestinationFolder = path.join(root, imageYear);
-  const absoluteOutputPath = path.join(root, thumbnailEntry);
-  try {
-    await fs.access(thumbnailDestinationFolder, constants.W_OK);
-  } catch {
-    throw new Error(`Cannot write to output file "${absoluteOutputPath}"`);
+
+  const absoluteOutputPaths = [];
+
+  for (const location of locations) {
+    const dest = path.resolve(root, '..', location, thumbnailEntry);
+    absoluteOutputPaths.push(dest);
+
+    try {
+      await fs.access(dest, constants.W_OK);
+    } catch {
+      throw new Error(`Cannot write to output file "${dest}"`);
+    }
   }
+
+  console.log(absoluteOutputPaths);
 
   return {
     absoluteInputPath,
-    absoluteOutputPath,
+    absoluteOutputPaths,
     thumbnailEntry,
   };
 };
@@ -138,6 +166,7 @@ const createThumbnail = async (
   if (options.output.height) {
     resizeTo.height = options.output.height;
   }
+
   return await sharp(inputPath).resize(resizeTo).toFile(outputPath);
 };
 
