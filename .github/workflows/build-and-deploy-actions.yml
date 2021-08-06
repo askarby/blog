@@ -26,7 +26,7 @@ jobs:
         run: npm run build:prod
 
       - name: Generate static site (using Scully.io)
-        run: scully:scan-routes
+        run: npm run scully:scan-routes
 
       - name: Deploy to GH-pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
