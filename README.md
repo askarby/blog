@@ -85,7 +85,16 @@ The scripts are run using `npm run <script name>` (where you substitute `<script
 
 ### CI
 
-**TODO**: Write about the "GitHub actions"-setup, when this has been implemented!
+This blog is build using the [Github actions][github-actions] CI system. This is done on every `push` to the `master`-branch.
+
+You can have a look at the [configuration file](.github/workflows/build-and-deploy-actions.yml)-file for the specific details,
+but a (quick) summary of what happens is:
+
+1. Install [Node.js][node] and packages referenced by `package.json`
+2. Execute the unit tests
+3. Build the [Angular][angular] application
+4. Process the build application with [Scully.io][scully] (to generate a static site)
+5. Publish the processed site to [Github pages][github-pages]
 
 ## Blog content
 
@@ -99,18 +108,6 @@ This is the checklist of action items remaining, for the blog to function as exp
 
 In progress:
 
-- [ ] Github actions
-  - [ ] Run unit tests
-  - [ ] Run E2E tests
-  - [ ] Deploy to github pages
-
-Still missing:
-
-- [ ] Search-functionality
-- [ ] E2E tests
-  - [ ] Setting up Cypress
-  - [ ] Writing the actual tests
-- [ ] Linting markdown files (checking that front-matter contains required things)
 - [ ] Indication of "which post is new"
   - Display it with "a badge"
   - New posts are "released less than a month ago"
@@ -118,19 +115,32 @@ Still missing:
     - "A month" is read from environment (hence, adjustable)
   - Show on "blog listings"-page
   - Show on "Home (welcome)"-page
-- [ ] Clean-up / refactor SCSS-styles
-  - Loads of repeated code, in regard to layout (copy and pasted between Component's SCSS-files)
-  - Add stylelint for linting!
-- [ ] Mark posts to "read later"
+
+Still missing:
+
 - [ ] Bug report template
   - Since this is not an interactive site, we need to utilize Github's issues for improvements, eg.:
     - Create template for content bug
     - Create template for site / functionality bug
     - Add reference to template content bug on blog-posts page
+- [ ] Search-functionality
+- [ ] Linting markdown files (checking that front-matter contains required things)
+- [ ] Clean-up / refactor SCSS-styles
+  - Loads of repeated code, in regard to layout (copy and pasted between Component's SCSS-files)
+  - Add stylelint for linting!
+- [ ] Mark posts to "read later"
+- [ ] E2E tests
+  - [ ] Setting up Cypress
+  - [ ] Writing the actual tests
+  - [ ] Run E2E tests from github actions
 
 Completed items:
 
-- [ ] Add ability to discard side-nav by clicking upon "content"
+- [x] Github actions
+  - [x] Run unit tests
+  - [%] Run E2E tests
+  - [x] Deploy to github pages
+- [x] Add ability to discard side-nav by clicking upon "content"
 - [x] Analytics (tracking)
   - [x] Actual integration configuration
   - [x] Cookie consent
@@ -176,3 +186,6 @@ Completed items:
 [commitlint]: https://github.com/conventional-changelog/commitlint
 [conventional-commits]: https://www.conventionalcommits.org
 [git-hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+[github-actions]: https://github.com/features/actions
+[node]: https://nodejs.org/en/
+[github-pages]: https://pages.github.com/
