@@ -16,7 +16,7 @@
     "e2e": "ng e2e",
     "scully": "scully",
     "scully:scan-routes": "npm run scully -- --scanRoutes",
-    "scully:serve": "npm run scully -- serve",
+    "scully:serve": "npm run scully -- --watch",
     "scully:full-build": "npm run clean && npm run build && npm run scully:scan-routes",
     "prepare": "husky install",
     "dist": "npm run clean && npm run build:prod && npm run scully:scan-routes"
