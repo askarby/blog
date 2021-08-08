@@ -5,6 +5,10 @@ on:
       - master
     paths-ignore:
       - ".github/ISSUE_TEMPLATE"
+      - "README.md"
+      - "CODE_LICENSE"
+      - "CONTENT_LICENSE"
+      - "LICENSE"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
