@@ -15,7 +15,7 @@ body:
 
         - a typo
         - inprovements to contents
-        - correction a factual error
+        - correcting a factual error
   - type: input
     id: url
     attributes:
