@@ -107,6 +107,10 @@ article {
     background: #f2f2f2;
     border: 1px solid #e2e2e2;
     border-radius: 3px;
+
+    // Prevent wrapping on "-" (hyphens) or whitespace
+    hyphens: none;
+    white-space: nowrap;
   }
 
   // Highlighted code-block
