@@ -145,7 +145,7 @@ Completed items:
 
 - [x] Github actions
   - [x] Run unit tests
-  - [%] Run E2E tests
+  - [ ] Run E2E tests
   - [x] Deploy to github pages
 - [x] Add ability to discard side-nav by clicking upon "content"
 - [x] Analytics (tracking)

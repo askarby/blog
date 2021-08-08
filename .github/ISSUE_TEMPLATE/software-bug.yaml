@@ -1,0 +1,41 @@
+name: Software Bug Report
+description: File a bug report related to the blog software
+title: "[Bug]: "
+labels: [bug, triage]
+assignees:
+  - askarby
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+        **NOTICE:** Please be aware that this is not a bug report to file
+        for corrections to contents / blog posts, this is solely related to
+        errors in the blog's software (this site not rendering correctly etc.)
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can I get in touch with you if I need additional information?
+      placeholder: example. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell me, what did you expect to happen?
+      placeholder: Tell me what you see!
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
