@@ -109,73 +109,10 @@ look at the documentation in the [scully/plugins](scully/plugins)-folder.
 
 ## Checklist
 
-This is the checklist of action items remaining, for the blog to function as expected
+This section used to contain a markdown checklist of items "to-do" (but I grew tired of this )
 
-In progress:
-
-- [ ] Bug report template
-  - Since this is not an interactive site, we need to utilize Github's issues for improvements, eg.:
-    - Create template for content bug
-    - Create template for site / functionality bug
-    - Add reference to template content bug on blog-posts page
-- [ ] Indication of "which post is new"
-  - Display it with "a badge"
-  - New posts are "released less than a month ago"
-    - Based on Browser's (device's) date
-    - "A month" is read from environment (hence, adjustable)
-  - Show on "blog listings"-page
-  - Show on "Home (welcome)"-page
-
-Still missing:
-
-- [ ] Enhance the documentation in the scully/plugins folder
-- [ ] Search-functionality
-- [ ] Linting markdown files (checking that front-matter contains required things)
-- [ ] Clean-up / refactor SCSS-styles
-  - Loads of repeated code, in regard to layout (copy and pasted between Component's SCSS-files)
-  - Add stylelint for linting!
-- [ ] Mark posts to "read later"
-- [ ] Write FAQ-page
-- [ ] E2E tests
-  - [ ] Setting up Cypress
-  - [ ] Writing the actual tests
-  - [ ] Run E2E tests from github actions
-
-Completed items:
-
-- [x] Github actions
-  - [x] Run unit tests
-  - [ ] Run E2E tests
-  - [x] Deploy to github pages
-- [x] Add ability to discard side-nav by clicking upon "content"
-- [x] Analytics (tracking)
-  - [x] Actual integration configuration
-  - [x] Cookie consent
-    - https://www.osano.com/cookieconsent/documentation/javascript-api/
-    - https://github.com/osano/cookieconsent/
-    - https://stackoverflow.com/questions/60173853/how-to-set-the-google-analytics-cookie-only-after-another-consent-cookie-is-set
-- [x] Upgrade to Angular 12 (and newest version of Scully)
-- [x] Unit tests - writing the actual tests
-  - This is "catching up" on initial "things" that have no tests
-    - New functionality should have tests (since we're out of the "starting project"-phase)
-  - Don't go overboard (pls!)
-- [x] Home (welcome) page
-- [x] Fix issue with mobile layout (header) of "About"-page
-- [x] Footer
-- [x] Copyright
-  - Source code -> open source (MIT licensed?)
-  - Content and images -> other license
-- [x] Initial setup of blog seems to work now.
-- [x] Blog posts are visible (and rendered correctly)
-- [x] Top-bar navigation is working
-- [x] Side-bar navigation is working, albeit missing styling.
-- [x] Integration with front-matter on blog posts (missing header etc.)
-- [x] Blog listings page
-  - [x] Listing all posts in reverse-order (newest first, oldest last)
-  - [x] Dynamically group
-    - Based on number of posts within a time-period, group on these, eg. if 10 posts in a year then group by year, if > 10 in a year then group by month!
-- [x] About page
-- [x] Documentation of how the development environment is working
+Instead, have a look at "what's going on" in the "Project's kanban board", found here:
+https://github.com/askarby/blog/projects/1
 
 <!-- External links / references -->
 
