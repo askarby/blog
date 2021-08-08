@@ -113,6 +113,11 @@ This is the checklist of action items remaining, for the blog to function as exp
 
 In progress:
 
+- [ ] Bug report template
+  - Since this is not an interactive site, we need to utilize Github's issues for improvements, eg.:
+    - Create template for content bug
+    - Create template for site / functionality bug
+    - Add reference to template content bug on blog-posts page
 - [ ] Indication of "which post is new"
   - Display it with "a badge"
   - New posts are "released less than a month ago"
@@ -123,11 +128,6 @@ In progress:
 
 Still missing:
 
-- [ ] Bug report template
-  - Since this is not an interactive site, we need to utilize Github's issues for improvements, eg.:
-    - Create template for content bug
-    - Create template for site / functionality bug
-    - Add reference to template content bug on blog-posts page
 - [ ] Enhance the documentation in the scully/plugins folder
 - [ ] Search-functionality
 - [ ] Linting markdown files (checking that front-matter contains required things)
@@ -135,6 +135,7 @@ Still missing:
   - Loads of repeated code, in regard to layout (copy and pasted between Component's SCSS-files)
   - Add stylelint for linting!
 - [ ] Mark posts to "read later"
+- [ ] Write FAQ-page
 - [ ] E2E tests
   - [ ] Setting up Cypress
   - [ ] Writing the actual tests
