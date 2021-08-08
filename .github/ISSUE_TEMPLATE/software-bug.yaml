@@ -26,7 +26,16 @@ body:
     attributes:
       label: What happened?
       description: Also tell me, what did you expect to happen?
-      placeholder: Tell me what you see!
+      placeholder: |
+        Example:
+
+        Steps to reproduce:
+        1.
+        2.
+        3.
+
+        I expected ... to happen!
+        I saw ... happen!
     validations:
       required: true
   - type: dropdown
