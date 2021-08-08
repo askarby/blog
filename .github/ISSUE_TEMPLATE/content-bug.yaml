@@ -1,0 +1,37 @@
+name: Content feedback
+description: Provide feedback on a certain blog post
+title: "[Feedback]: "
+labels: [content, feedback]
+assignees:
+  - askarby
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this "content feedback"-report!
+
+        **NOTICE:** Please be aware that this is not meant to report bugs regarding the blog site / software,
+        but rather related to corrections to content / blog posts. An example hereof could be:
+
+        - a typo
+        - inprovements to contents
+        - correction a factual error
+  - type: input
+    id: url
+    attributes:
+      label: URL to page
+      description: Where on the site did you find the error
+      placeholder: example. https://blog.skarby.info/blog/post/2021/2021-08-08-commit-messages
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: What's to report?
+      description: Please tell me (in great detail) what you'd like to improve / correct?
+      placeholder: |
+        Please provide an extensive description on what you'd like to improve on / correct.
+
+        Text is appreciated, but if you should provide a screenshot, that would be even better :)
+    validations:
+      required: true
