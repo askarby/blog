@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - ".github/ISSUE_TEMPLATE"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
