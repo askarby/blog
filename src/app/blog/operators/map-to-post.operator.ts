@@ -6,6 +6,9 @@ import { map } from 'rxjs/operators';
 const routeToPost = (route: ScullyRoute): Post => {
   const post = {} as Post;
   post.tags = [];
+  post.licenses = [];
+  post.references = [];
+
   Object.entries(route).forEach(([key, value]) => {
     if (key === 'tags') {
       post.tags = value.split(' ');
@@ -20,10 +23,11 @@ const routeToPost = (route: ScullyRoute): Post => {
   return post;
 };
 
-export const mapToPost = (): OperatorFunction<ScullyRoute, Post> => (
-  input: Observable<ScullyRoute>
-) => input.pipe(map(routeToPost));
+export const mapToPost =
+  (): OperatorFunction<ScullyRoute, Post> => (input: Observable<ScullyRoute>) =>
+    input.pipe(map(routeToPost));
 
-export const mapToPosts = (): OperatorFunction<ScullyRoute[], Post[]> => (
-  input: Observable<ScullyRoute[]>
-) => input.pipe(map((routes) => routes.map(routeToPost)));
+export const mapToPosts =
+  (): OperatorFunction<ScullyRoute[], Post[]> =>
+  (input: Observable<ScullyRoute[]>) =>
+    input.pipe(map((routes) => routes.map(routeToPost)));

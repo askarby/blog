@@ -52,4 +52,16 @@ describe('mapToPost operator', () => {
         });
     });
   });
+
+  ['tags', 'licenses', 'references'].forEach((assetKey) => {
+    it(`should return an empty list of ${assetKey}, if none are present in route`, (done) => {
+      delete route[assetKey];
+      of(route)
+        .pipe(mapToPost())
+        .subscribe((post) => {
+          expect(post[assetKey]).toEqual([]);
+          done();
+        });
+    });
+  });
 });

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { LicenseItem } from './license-info.model';
+import { Reference } from './reference.model';
 
 export interface TocEntry {
   /**
@@ -77,6 +78,13 @@ export interface Post extends ScullyRoute {
    * (when absent, this will produce an empty array of `LicenseItem`s).
    */
   licenses: LicenseItem[];
+
+  /**
+   * References that was used to create the post.
+   *
+   * (when absent, this will produce an empty array of `Reference`s).
+   */
+  references: Reference[];
 
   /**
    * Number of minutes the post takes to read.
