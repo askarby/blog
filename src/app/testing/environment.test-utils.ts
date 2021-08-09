@@ -36,6 +36,12 @@ export const createEnvironment = (
     name: 'test.com',
   },
 
+  feedback: {
+    content: 'https://github.com/user/project/issues/new?template=content',
+    bug: 'https://github.com/user/project/issues/new?template=bug',
+    issues: 'https://github.com/user/project/issues',
+  },
+
   links: createLinks(),
 
   social: createSocialMedia(),

@@ -9,7 +9,9 @@
     <scully-content></scully-content>
   </article>
 
-  <app-post-footer [post]="post"></app-post-footer>
+  <app-post-footer [post]="post" [feedback]="environment.feedback">
+  </app-post-footer>
+  <app-post-statusbar [post]="post"></app-post-statusbar>
 </ng-container>
 
 <ng-template #postNotFound>

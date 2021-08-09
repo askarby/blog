@@ -1,7 +1,7 @@
 import {
   AfterViewChecked,
-  AfterViewInit,
   Component,
+  Inject,
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
@@ -10,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { Post } from '../../models/post.model';
-import { tap } from 'rxjs/operators';
 import { mapToPost } from '../operators/map-to-post.operator';
+import { ENVIRONMENT_TOKEN } from '../../shared/di.tokens';
+import { Environment } from '../../../environments/environment.model';
 
 @Component({
   selector: 'app-post',
@@ -26,7 +27,8 @@ export class PostComponent implements OnInit, AfterViewChecked {
   constructor(
     private scully: ScullyRoutesService,
     private route: ActivatedRoute,
-    private highlightService: HighlightService
+    private highlightService: HighlightService,
+    @Inject(ENVIRONMENT_TOKEN) public environment: Environment
   ) {}
 
   ngOnInit(): void {

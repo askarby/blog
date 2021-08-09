@@ -1,0 +1,41 @@
+@use 'colors';
+
+:host {
+  // Positioning
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  // Layout
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0.625rem;
+
+  // Colors and font
+  border-top: 1px solid #f2f2f2;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+
+  // Animation
+  transition: bottom 0.5s;
+}
+
+.title {
+  flex-grow: 1;
+}
+
+nav {
+  cursor: pointer;
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  height: 5px;
+  background-color: colors.clr(blog);
+}

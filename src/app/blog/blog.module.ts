@@ -14,6 +14,8 @@ import { ListingPostComponent } from './listing/listing-post/listing-post.compon
 import { ListingByYearComponent } from './listing/listing-by-year/listing-by-year.component';
 import { ListingByMonthAndYearComponent } from './listing/listing-by-month-and-year/listing-by-month-and-year.component';
 import { ListingPostPreviewComponent } from './listing/listing-post-preview/listing-post-preview.component';
+import { FeedbackButtonComponent } from './post/post-footer/feedback-button/feedback-button.component';
+import { PostStatusbarComponent } from './post/post-statusbar/post-statusbar.component';
 
 @NgModule({
   imports: [
@@ -28,11 +30,13 @@ import { ListingPostPreviewComponent } from './listing/listing-post-preview/list
     ListingComponent,
     PostHeaderComponent,
     PostFooterComponent,
+    PostStatusbarComponent,
     TableOfContentsComponent,
     ListingPostComponent,
     ListingByYearComponent,
     ListingByMonthAndYearComponent,
     ListingPostPreviewComponent,
+    FeedbackButtonComponent,
   ],
 })
 export class BlogModule {}

@@ -16,6 +16,9 @@ import { PostFooterComponent } from './post-footer/post-footer.component';
 import { PostHeaderComponent } from './post-header/post-header.component';
 import { TableOfContentsComponent } from './table-of-contents/table-of-contents.component';
 import { createPostAsScullyRoute } from '../../testing/post.test-utils';
+import { PostStatusbarComponent } from './post-statusbar/post-statusbar.component';
+import { ENVIRONMENT_TOKEN } from '../../shared/di.tokens';
+import { environment } from '../../../environments/environment';
 
 describe('PostComponent', () => {
   const currentRoute = new Subject<ScullyRoute>();
@@ -26,6 +29,7 @@ describe('PostComponent', () => {
         ScullyContentComponent,
         PostFooterComponent,
         PostHeaderComponent,
+        PostStatusbarComponent,
         TableOfContentsComponent
       ),
     ],
@@ -36,6 +40,10 @@ describe('PostComponent', () => {
           getCurrent: (): Observable<ScullyRoute> =>
             currentRoute.asObservable(),
         }),
+      },
+      {
+        provide: ENVIRONMENT_TOKEN,
+        useValue: environment,
       },
     ],
   });

@@ -1,8 +1,46 @@
-<span class="title">{{ post.title }}</span>
+<div class="container">
+  <section class="feedback">
+    <h2>Feedback</h2>
+    <p>
+      Please provide feedback for the post below. Since this is a statically
+      generated site (sorry hackers) we utilize
+      <a href="https://github.com/features/issues/">Github issues</a> to handle
+      feedback.
+    </p>
+    <div class="buttons">
+      <app-feedback-button
+        [icon]="icons.feedback"
+        title="Feedback"
+        [url]="feedback.content"
+      >
+        Give feedback on this blog post, either on content, grammatical or
+        typos.
+      </app-feedback-button>
+      <app-feedback-button [icon]="icons.bug" title="Bug" [url]="feedback.bug">
+        Report a bug in the blog software (not content related)
+      </app-feedback-button>
+    </div>
+    <i
+      >(or have a look at the already reported
+      <a [href]="feedback.issues">issues!</a>)</i
+    >
+  </section>
 
-<nav (click)="scrollToTop()">
-  To top
-  <fa-icon [icon]="icons.toTop"></fa-icon>
-</nav>
-
-<div class="progress" [ngStyle]="{ right: percentageRemaining + '%' }"></div>
+  <section class="references">
+    <h2>References</h2>
+    <div class="content">
+      <ng-content select="[data-references]"></ng-content>
+      <div class="default-content">
+        <h3>
+          <fa-icon [icon]="icons.info"></fa-icon>
+          Notice
+        </h3>
+        <p>
+          There are no explicit references provided for the current blog post,
+          hence references to articles and repositories are inlined in the post
+          itself!
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

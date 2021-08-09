@@ -8,6 +8,14 @@ export const sharedEnvironment: Omit<
     name: 'skarby.info',
   },
 
+  feedback: {
+    content:
+      'https://github.com/askarby/blog/issues/new?labels=content%2Cfeedback&template=content-bug.yaml&title=%5BFeedback%5D%3A+',
+    bug:
+      'https://github.com/askarby/blog/issues/new?labels=bug%2Ctriage&template=software-bug.yaml&title=%5BBug%5D%3A+',
+    issues: 'https://github.com/askarby/blog/issues',
+  },
+
   links: [
     {
       type: 'internal',

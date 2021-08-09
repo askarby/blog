@@ -11,6 +11,8 @@ export interface Environment {
     name: string;
   };
 
+  feedback: Feedback;
+
   links: (InternalLink | ExternalLink)[];
 
   social: SocialMedia;
@@ -22,6 +24,12 @@ export interface Environment {
   frontPage: FrontPage;
 
   analytics: Analytics;
+}
+
+export interface Feedback {
+  content: string;
+  bug: string;
+  issues: string;
 }
 
 export interface SocialMedia {
