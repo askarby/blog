@@ -28,19 +28,23 @@
 
   <section class="references">
     <h2>References</h2>
-    <div class="content">
-      <ng-content select="[data-references]"></ng-content>
-      <div class="default-content">
-        <h3>
-          <fa-icon [icon]="icons.info"></fa-icon>
-          Notice
-        </h3>
-        <p>
-          There are no explicit references provided for the current blog post,
-          hence references to articles and repositories are inlined in the post
-          itself!
-        </p>
-      </div>
+    <div class="content" *ngIf="post.references.length > 0; else noReferences">
+      <ul>
+        <li *ngFor="let reference of post.references">
+          <a [href]="reference.url">{{ reference.name }}</a>
+        </li>
+      </ul>
     </div>
   </section>
 </div>
+
+<ng-template #noReferences>
+  <h3>
+    <fa-icon [icon]="icons.info"></fa-icon>
+    Notice
+  </h3>
+  <p>
+    There are no explicit references provided for the current blog post, hence
+    references to articles and repositories are inlined in the post itself!
+  </p>
+</ng-template>

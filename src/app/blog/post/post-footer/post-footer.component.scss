@@ -1,4 +1,5 @@
 @use 'include-media' as responsive;
+@use 'flexbox' as flexbox;
 
 :host {
   display: block;
@@ -19,8 +20,10 @@
   padding: 0 0.5rem;
 
   @include responsive.media("screen", ">=tablet") {
-    padding: 0;
     flex-direction: row;
+    gap: 2rem;
+
+    padding: 0;
   }
 
   @include responsive.media("screen", ">=desktop") {
@@ -67,6 +70,8 @@ li {
 }
 
 .feedback {
+  @include flexbox.equal-size();
+
   .buttons {
     display: flex;
     flex-direction: column;
@@ -77,9 +82,7 @@ li {
     }
 
     app-feedback-button {
-      flex-grow: 1;
-      flex-shrink: 1;
-      flex-basis: 0;
+      @include flexbox.equal-size();
     }
   }
 
@@ -92,14 +95,10 @@ li {
   }
 }
 
-.references .content {
-  .default-content {
-    h3 {
-      color: orange;
-    }
+.references {
+  @include flexbox.equal-size();
+}
 
-    &:not(:only-child) {
-      display: none;
-    }
-  }
+h3 {
+  color: orange;
 }
