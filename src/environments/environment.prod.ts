@@ -5,6 +5,6 @@ export const environment: Environment = {
   ...sharedEnvironment,
   production: true,
   analytics: {
-    googleAnalyticsTrackingId: 'UA-26353007-1',
+    googleAnalyticsTrackingId: 'UA-26353007-2',
   },
 };
