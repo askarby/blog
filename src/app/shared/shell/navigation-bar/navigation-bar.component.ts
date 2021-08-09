@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Inject,
   Input,
   Output,
 } from '@angular/core';
@@ -13,6 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { ExternalLink, InternalLink } from '../navigation.model';
+import { WINDOW_TOKEN } from '../../di.tokens';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -43,8 +45,15 @@ export class NavigationBarComponent {
     cookie: faCookieBite,
   };
 
-  constructor() {
+  constructor(@Inject(WINDOW_TOKEN) private window: Window) {
     this.showMenu = new EventEmitter();
     this.showCookiePreferences = new EventEmitter();
+  }
+
+  scrollToTop(): void {
+    this.window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 }
