@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 import { sort, SortingOrder } from '../shared/utilities/sorting.utility';
 import { ENVIRONMENT_TOKEN } from '../shared/di.tokens';
 import { Environment } from '../../environments/environment.model';
+import { LicenseRepositoryService } from '../shared/services/license-repository.service';
+import { License } from '../models/license.model';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +17,11 @@ import { Environment } from '../../environments/environment.model';
 })
 export class HomeComponent {
   newestPosts$!: Observable<Post[]>;
+  sourceCodeLicense: License | null;
 
   constructor(
     private scully: ScullyRoutesService,
+    private licenses: LicenseRepositoryService,
     @Inject(ENVIRONMENT_TOKEN) public environment: Environment
   ) {
     this.newestPosts$ = scully.available$.pipe(
@@ -27,5 +31,6 @@ export class HomeComponent {
       ),
       map((posts) => posts.slice(0, environment.frontPage.numberOfNewestPosts))
     );
+    this.sourceCodeLicense = this.licenses.getLicense('MIT');
   }
 }

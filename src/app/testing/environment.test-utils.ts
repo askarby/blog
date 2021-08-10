@@ -34,6 +34,7 @@ export const createEnvironment = (
 
   site: {
     name: 'test.com',
+    githubRepo: 'https://github.com/organization/repository',
   },
 
   feedback: {

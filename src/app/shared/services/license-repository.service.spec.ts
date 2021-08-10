@@ -55,13 +55,13 @@ describe('LicenseRepositoryService', () => {
   });
 
   describe('getLicense', () => {
-    it('should return result with highest score', () => {
+    it('should return result with lowest score', () => {
       const result = service.getLicense('something');
       const expected = {
-        name: '[mock:2] name:something',
-        site: '[mock:2] site:something',
-        type: 'site',
-        url: '[mock:2] url:something',
+        name: '[mock:3] name:something',
+        spdx: '[mock:3] spdx:something',
+        type: 'oss',
+        url: '[mock:3] url:something',
       };
       expect(result).toEqual(expected);
     });

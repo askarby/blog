@@ -9,6 +9,7 @@ export interface Environment {
 
   site: {
     name: string;
+    githubRepo: string;
   };
 
   feedback: Feedback;

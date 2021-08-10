@@ -1,4 +1,4 @@
-<section class="new-posts">
+<section class="full-width new-posts">
   <header>
     <h1>
       {{ environment.frontPage.numberOfNewestPosts }} newest blog posts...
@@ -29,4 +29,32 @@
     You can read my posts by clicking upon one of the images above, or go to the
     <a routerLink="/blog">blog listing</a>-page.
   </p>
+</section>
+
+<section class="full-width open-source">
+  <div class="container">
+    <div class="oss-group">
+      <img
+        src="/assets/images/logos/OSI_keyhole.svg"
+        alt="Open Source Initiative Keyhole image"
+      />
+      <h1>Source code</h1>
+      <p>
+        The source code of the blog is open sourced and can be found at the
+        following <a href="">GitHub repository</a>.
+      </p>
+    </div>
+    <div class="oss-group">
+      <img
+        src="/assets/images/logos/MIT_logo.svg"
+        alt="MIT license logo image"
+      />
+      <h1>Licensed</h1>
+      <p>
+        The code of the blog is licensed under the
+        <a [href]="sourceCodeLicense?.url">{{ sourceCodeLicense?.name }}</a
+        >, hence ready for you to browse and potentially fork.
+      </p>
+    </div>
+  </div>
 </section>

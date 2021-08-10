@@ -13,11 +13,13 @@ import { createPostAsScullyRoute } from '../testing/post.test-utils';
 import { of } from 'rxjs';
 import { dateOfYear } from '../testing/date.test-utils';
 import { Environment } from '../../environments/environment.model';
+import { LicenseRepositoryService } from '../shared/services/license-repository.service';
 
 describe('HomeComponent', () => {
   const createComponent = createRoutingFactory({
     component: HomeComponent,
     declarations: [MockComponents(NewPostsComponent)],
+    mocks: [LicenseRepositoryService],
     providers: [
       mockProvider(ScullyRoutesService, {
         available$: of(

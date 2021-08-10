@@ -1,55 +1,16 @@
 @use 'colors';
 @use 'include-media' as responsive;
 
-.new-posts {
-  display: block;
-
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-
-  background-image: url("/assets/images/blog-hero-image.jpeg");
-  background-size: cover;
-  background-position: center;
-
-  @include responsive.media("screen", ">=tablet") {
-    padding: 2rem 0;
-    margin-bottom: 2rem;
-  }
-
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-
-    color: #fff;
-    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-
-    a:visited,
-    a:focus {
-      display: inline-block;
-      color: #fff;
-    }
-  }
-}
-
-header,
-app-new-posts,
-.about-the-blog {
+@mixin centered-paragraph($headlineColor: black) {
   max-width: 40rem;
   margin: 0 auto;
 
   @include responsive.media("screen", ">=desktop") {
     max-width: 55rem;
   }
-}
-
-.about-the-blog {
-  padding: 0.5rem 0.5rem 2.5rem 0.5rem;
 
   h1 {
-    color: colors.clr(blog);
+    color: $headlineColor;
   }
 
   p,
@@ -67,6 +28,110 @@ app-new-posts,
 
   p + p {
     margin-bottom: 1rem;
+  }
+}
+
+.full-width {
+  display: block;
+
+  width: 100%;
+  padding: 0.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    padding: 2rem 0;
+  }
+}
+
+.new-posts {
+  background-image: url("/assets/images/blog-hero-image.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  header {
+    @include centered-paragraph(colors.$white);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    color: #fff;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+
+    a:visited,
+    a:focus {
+      display: inline-block;
+      color: #fff;
+    }
+  }
+
+  app-new-posts {
+    @include centered-paragraph();
+  }
+}
+
+.about-the-blog {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  padding: 0.5rem;
+
+  @include responsive.media("screen", ">=tablet") {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @include centered-paragraph(colors.clr(blog));
+}
+
+.open-source {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+
+  .container {
+    @include centered-paragraph(colors.$white);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include responsive.media("screen", ">=tablet") {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  .oss-group {
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: auto;
+    grid-column-gap: 1rem;
+
+    grid-template-areas:
+      "image header"
+      "image text";
+
+    img {
+      grid-area: image;
+      width: 100px;
+    }
+
+    h1 {
+      grid-area: header;
+    }
+
+    p {
+      grid-area: text;
+    }
+  }
+}
+
+a {
+  color: #00e;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
