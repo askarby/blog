@@ -73,6 +73,12 @@ export const openSourceLicenses: OpenSourceLicense[] = [
     name: 'Eclipse Public License version 2.0',
     url: 'https://opensource.org/licenses/EPL-2.0',
   },
+  {
+    type: 'oss',
+    spdx: 'CC-BY-2.5',
+    name: 'Creative Commons Attribution 2.5 Generic',
+    url: 'https://creativecommons.org/licenses/by/2.5/',
+  },
 ];
 
 export const siteLicenses: SiteLicense[] = [
