@@ -26,8 +26,16 @@ export class LicenseRepositoryService {
   }
 
   getLicense(id: string): License | null {
+    if (id === 'public-domain') {
+      return {
+        type: 'oss',
+        name: 'Public Domain',
+        url: 'https://fairuse.stanford.edu/overview/public-domain/welcome/',
+      };
+    }
     const results = [...this.sites.search(id), ...this.openSource.search(id)];
-    const sorted = results.sort((a, b) => Number(b.score) - Number(a.score));
+    // We sort by score, 0 is a perfect match, 1 is a complete mismatch!
+    const sorted = results.sort((a, b) => Number(a.score) - Number(b.score));
     return sorted[0].item;
   }
 }
