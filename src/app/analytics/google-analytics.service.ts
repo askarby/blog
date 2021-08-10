@@ -42,11 +42,10 @@ export class GoogleAnalyticsService {
     private configuration: AnalyticsConfiguration,
     private cookieConsentService: CookieConsentService,
     private router: Router
-  ) {
-    // TODO: Consider if this is the correct place to "hook into" the cookie consent mechanism
-    // This will start tracking when the "GOOGLE_ANALYTICS_COOKIE_PROVIDER_ID" has been approved, and
-    // stop tracking when it has been rejected.
-    cookieConsentService
+  ) {}
+
+  public initialize() {
+    this.cookieConsentService
       .getChangesTo(GOOGLE_ANALYTICS_COOKIE_PROVIDER_ID)
       .subscribe((enabled) => {
         if (enabled) {
@@ -102,7 +101,12 @@ export class GoogleAnalyticsService {
       .pipe(takeUntil(this.stopTracking$))
       .subscribe((event: AnalyticsEvent) => {
         if (!this.configuration.enabled) {
-          console.warn('Tracking: ', { event });
+          console.log(
+            'ℹ️ Submitting event to %cGoogle Analytics %c(can be disabled in Cookies panel): %o',
+            'color: #4285F4',
+            'color: unset',
+            { event }
+          );
           return;
         }
 

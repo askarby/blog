@@ -20,6 +20,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { CookieConsentBarComponent } from './cookie-consent/cookie-consent-bar/cookie-consent-bar.component';
 import { CookieConsentPreferencesComponent } from './cookie-consent/cookie-consent-preferences/cookie-consent-preferences.component';
 import { CookieConsentService } from './cookie-consent/cookie-consent.service';
+import { GoogleAnalyticsService } from './analytics/google-analytics.service';
 
 describe('AppComponent', () => {
   const licenses = new BehaviorSubject<LicenseItem[]>([]);
@@ -38,6 +39,7 @@ describe('AppComponent', () => {
         CookieConsentPreferencesComponent
       ),
     ],
+    mocks: [GoogleAnalyticsService],
     providers: [
       {
         provide: ENVIRONMENT_TOKEN,

@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { LicenseItem } from './models/license-info.model';
 import { CookieConsentService } from './cookie-consent/cookie-consent.service';
+import { GoogleAnalyticsService } from './analytics/google-analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -24,12 +25,14 @@ export class AppComponent implements OnInit, OnDestroy {
     @Inject(ENVIRONMENT_TOKEN) public environment: Environment,
     private cookieConsentService: CookieConsentService,
     private licenseInfoService: LicenseInfoService,
-    private router: Router
+    private router: Router,
+    private analyticsService: GoogleAnalyticsService
   ) {
     this.licenseItems$ = licenseInfoService.activeRouteLicenses$;
     this.displayCookieAccess$ = cookieConsentService.displayConsentBar$.pipe(
       map((displayBar) => !displayBar)
     );
+    this.analyticsService.initialize();
   }
 
   ngOnInit(): void {
