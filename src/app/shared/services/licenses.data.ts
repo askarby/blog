@@ -79,6 +79,12 @@ export const openSourceLicenses: OpenSourceLicense[] = [
     name: 'Creative Commons Attribution 2.5 Generic',
     url: 'https://creativecommons.org/licenses/by/2.5/',
   },
+  {
+    type: 'oss',
+    spdx: 'CC-BY-40',
+    name: 'Creative Commons Attribution 4.0 International ',
+    url: 'https://creativecommons.org/licenses/by/4.0/',
+  },
 ];
 
 export const siteLicenses: SiteLicense[] = [
