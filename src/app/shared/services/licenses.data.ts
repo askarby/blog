@@ -96,8 +96,20 @@ export const siteLicenses: SiteLicense[] = [
   },
   {
     type: 'site',
+    name: 'PurePNG Terms',
+    site: 'purepng',
+    url: 'https://purepng.com/page/terms-of-service',
+  },
+  {
+    type: 'site',
     name: 'Font Awesome Free License',
     site: 'fontawesome',
     url: 'https://fontawesome.com/license/free',
+  },
+  {
+    type: 'site',
+    name: 'Ginger Labs, Inc',
+    site: 'gingerlabs',
+    url: 'https://www.gingerlabs.com/',
   },
 ];

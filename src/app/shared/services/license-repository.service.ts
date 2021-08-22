@@ -36,6 +36,6 @@ export class LicenseRepositoryService {
     const results = [...this.sites.search(id), ...this.openSource.search(id)];
     // We sort by score, 0 is a perfect match, 1 is a complete mismatch!
     const sorted = results.sort((a, b) => Number(a.score) - Number(b.score));
-    return sorted[0].item;
+    return sorted[0]?.item ?? null;
   }
 }
