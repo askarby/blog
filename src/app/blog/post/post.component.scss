@@ -143,4 +143,8 @@ article {
   :not(li) {
     margin-bottom: 1.5rem;
   }
+
+  ul ul {
+    margin-bottom: 0;
+  }
 }
