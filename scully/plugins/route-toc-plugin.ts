@@ -43,16 +43,14 @@ const enhanceWithToc = async (route: HandledRoute): Promise<HandledRoute> => {
     ...route,
     data: {
       ...route.data,
-      toc: headings.map(
-        (raw): TocEntry => {
-          const [, level, text] = raw.trim().match(/(#+)\s+(.*)/);
-          return {
-            id: getIdFromHeading(text),
-            text: getTextFromHeading(text),
-            level: level.length,
-          };
-        }
-      ),
+      toc: headings.map((raw): TocEntry => {
+        const [, level, text] = raw.trim().match(/(#+)\s+(.*)/);
+        return {
+          id: getIdFromHeading(text),
+          text: getTextFromHeading(text),
+          level: level.length,
+        };
+      }),
     },
   };
 };
@@ -84,8 +82,12 @@ const readHeadings = async (pathToMarkdownFile: string): Promise<string[]> => {
   });
   return new Promise((resolve) => {
     const headlines = [];
+    let insideCodeSnippet = false;
     readInterface.on('line', (line) => {
-      if (line.startsWith('#')) {
+      if (line.startsWith('```')) {
+        insideCodeSnippet = !insideCodeSnippet;
+      }
+      if (line.startsWith('#') && !insideCodeSnippet) {
         headlines.push(line);
       }
     });
