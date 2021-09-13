@@ -1,4 +1,10 @@
-import { Component, HostListener, Inject, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  Inject,
+  Input,
+} from '@angular/core';
 import { Post } from '../../../models/post.model';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT_TOKEN, WINDOW_TOKEN } from '../../../shared/di.tokens';
@@ -7,6 +13,7 @@ import { DOCUMENT_TOKEN, WINDOW_TOKEN } from '../../../shared/di.tokens';
   selector: 'app-post-statusbar',
   templateUrl: './post-statusbar.component.html',
   styleUrls: ['./post-statusbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostStatusbarComponent {
   @Input()

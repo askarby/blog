@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  ChangeDetectionStrategy,
   Component,
   Inject,
   OnInit,
@@ -20,6 +21,7 @@ import { Environment } from '../../../environments/environment.model';
   styleUrls: ['./post.component.scss'],
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent implements OnInit, AfterViewChecked {
   current$?: Observable<Post | null>;

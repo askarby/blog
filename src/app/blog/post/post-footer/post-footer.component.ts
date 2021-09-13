@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Post } from '../../../models/post.model';
 import {
   faBug,
@@ -11,6 +11,7 @@ import { Feedback } from '../../../../environments/environment.model';
   selector: 'app-post-footer',
   templateUrl: './post-footer.component.html',
   styleUrls: ['./post-footer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostFooterComponent {
   @Input()

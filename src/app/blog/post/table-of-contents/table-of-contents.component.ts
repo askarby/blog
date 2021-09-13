@@ -1,4 +1,9 @@
-import { Component, Inject, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+} from '@angular/core';
 import { Post, TocEntry } from '../../../models/post.model';
 import { DOCUMENT_TOKEN, WINDOW_TOKEN } from '../../../shared/di.tokens';
 
@@ -6,6 +11,7 @@ import { DOCUMENT_TOKEN, WINDOW_TOKEN } from '../../../shared/di.tokens';
   selector: 'app-table-of-contents',
   templateUrl: './table-of-contents.component.html',
   styleUrls: ['./table-of-contents.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableOfContentsComponent {
   static readonly navigationBarOffset = 100;

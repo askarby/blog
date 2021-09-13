@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import { Post } from '../../../models/post.model';
 
@@ -6,6 +6,7 @@ import { Post } from '../../../models/post.model';
   selector: 'app-post-header',
   templateUrl: './post-header.component.html',
   styleUrls: ['./post-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostHeaderComponent {
   @Input()
