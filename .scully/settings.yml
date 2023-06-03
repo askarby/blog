@@ -1,2 +1,11 @@
 identifier: k3mar1f62fq5m78e
 allowErrorCollect: true
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: blog
+homeFolder: /Users/askarby/Projects/blog
+distFolder: dist/blog
+outDir: /Users/askarby/Projects/blog/dist/static
+handle404: ""

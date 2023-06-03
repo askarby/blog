@@ -39,13 +39,13 @@ export class NewPostsComponent implements OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next();
+    this.destroy$.next(null);
     this.destroy$.complete();
   }
 
   startTimer() {
     // Stop currently running timer (if none is running, this has no effect)
-    this.destroy$.next();
+    this.destroy$.next(null);
 
     // Start a new interval timer
     interval(this.timeBetween)

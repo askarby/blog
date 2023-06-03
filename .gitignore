@@ -1,6 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# compiled output (and caches)
 /dist
 /tmp
 /out-tsc
@@ -9,6 +9,7 @@
 /scully/plugins/*.js
 /scully/plugins/*.js.map
 scully.blog.config.js
+/.angular
 
 # dependencies
 /node_modules

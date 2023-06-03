@@ -12,7 +12,7 @@
 @use "./partials/forms";
 
 // Prism
-@use '~prismjs/plugins/toolbar/prism-toolbar';
+@use 'prismjs/plugins/toolbar/prism-toolbar';
 @use './prismjs/prism-skarby';
 
 // Basic setup
