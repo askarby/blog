@@ -9,12 +9,12 @@ import { createPost } from '../../../testing/post.test-utils';
 import { Post } from '../../../models/post.model';
 import { Router, RouterLink } from '@angular/router';
 import { dateOfYear } from '../../../testing/date.test-utils';
-import { MockComponents } from 'ng-mocks';
+import { MockDirectives } from 'ng-mocks';
 
 describe('ListingPostComponent', () => {
   const createComponent = createRoutingFactory({
     component: ListingPostComponent,
-    declarations: [MockComponents(RouterLink)],
+    declarations: [MockDirectives(RouterLink)],
     stubsEnabled: true,
   });
 

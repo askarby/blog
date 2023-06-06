@@ -7,7 +7,6 @@ import { createPosts } from '../../testing/post.test-utils';
 describe('NewPostsComponent', () => {
   const createComponent = createRoutingFactory({
     component: NewPostsComponent,
-    mockRouterLinks: true,
   });
   let spectator: Spectator<NewPostsComponent>;
   let component: NewPostsComponent;

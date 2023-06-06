@@ -8,6 +8,13 @@ import {
   faStackOverflow,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
+interface SocialMediaEntry {
+  name: string;
+  icon: IconDefinition;
+  link: string;
+}
 
 @Component({
   selector: 'app-about',
@@ -15,33 +22,35 @@ import {
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
-  social = [
-    {
-      name: 'Facebook',
-      icon: faFacebook,
-      link: this.environment.social.facebook,
-    },
-    {
-      name: 'Twitter',
-      icon: faTwitter,
-      link: this.environment.social.twitter,
-    },
-    {
-      name: 'LinkedIn',
-      icon: faLinkedin,
-      link: this.environment.social.linkedin,
-    },
-    {
-      name: 'Stackoverflow',
-      icon: faStackOverflow,
-      link: this.environment.social.stackoverflow,
-    },
-    {
-      name: 'Github',
-      icon: faGithub,
-      link: this.environment.social.github,
-    },
-  ];
+  social: SocialMediaEntry[];
 
-  constructor(@Inject(ENVIRONMENT_TOKEN) public environment: Environment) {}
+  constructor(@Inject(ENVIRONMENT_TOKEN) public environment: Environment) {
+    this.social = [
+      {
+        name: 'Facebook',
+        icon: faFacebook,
+        link: environment.social.facebook,
+      },
+      {
+        name: 'Twitter',
+        icon: faTwitter,
+        link: environment.social.twitter,
+      },
+      {
+        name: 'LinkedIn',
+        icon: faLinkedin,
+        link: environment.social.linkedin,
+      },
+      {
+        name: 'Stackoverflow',
+        icon: faStackOverflow,
+        link: environment.social.stackoverflow,
+      },
+      {
+        name: 'Github',
+        icon: faGithub,
+        link: environment.social.github,
+      },
+    ];
+  }
 }

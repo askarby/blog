@@ -72,7 +72,7 @@ describe('LegacyUrlLookupGuard', () => {
   });
 
   it('should redirect to "post url", when post for legacy url is found', () => {
-    router.parseUrl.mockImplementation((url) => createUrlTree(url));
+    router.parseUrl.andCallFake((url: string) => createUrlTree(url));
     route.url = createUrlSegments('/legacy-url');
     scully.available$ = of([
       createPost({ route: '/blog/post/1', title: 'non-matching' }),

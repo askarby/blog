@@ -65,7 +65,7 @@ describe('TableOfContentsComponent', () => {
 
     it('should navigate to top of window, when clicked upon', () => {
       const targetOffset = 123;
-      document.getElementById.mockReturnValue({
+      document.getElementById.andReturn({
         offsetTop: targetOffset,
       } as HTMLElement);
 
@@ -100,7 +100,7 @@ describe('TableOfContentsComponent', () => {
 
       it('should navigate to Element position, when clicked upon', () => {
         const targetOffset = 123;
-        document.getElementById.mockReturnValue({
+        document.getElementById.andReturn({
           offsetTop: targetOffset,
         } as HTMLElement);
 

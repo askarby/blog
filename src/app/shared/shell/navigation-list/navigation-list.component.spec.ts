@@ -20,7 +20,6 @@ describe('NavigationListComponent', () => {
         useFactory: () => createSpyObj('Window', ['scrollTo']),
       },
     ],
-    mockRouterLinks: true,
   });
   let spectator: SpectatorRouting<NavigationListComponent>;
   let component: NavigationListComponent;

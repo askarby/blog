@@ -5,7 +5,7 @@ import {
 } from '@ngneat/spectator/jest';
 
 import { AppComponent } from './app.component';
-import { MockComponents } from 'ng-mocks';
+import { MockComponents, MockDirectives } from 'ng-mocks';
 import { NavigationBarComponent } from './shared/shell/navigation-bar/navigation-bar.component';
 import { SlideOutMenuComponent } from './shared/shell/slide-out-menu/slide-out-menu.component';
 import { Router, RouterEvent, RouterOutlet } from '@angular/router';
@@ -31,13 +31,13 @@ describe('AppComponent', () => {
     component: AppComponent,
     declarations: [
       MockComponents(
-        RouterOutlet,
         NavigationBarComponent,
         SlideOutMenuComponent,
         PageFooterComponent,
         CookieConsentBarComponent,
         CookieConsentPreferencesComponent
       ),
+      MockDirectives(RouterOutlet),
     ],
     mocks: [GoogleAnalyticsService],
     providers: [

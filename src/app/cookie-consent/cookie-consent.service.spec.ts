@@ -57,7 +57,7 @@ describe('CookieConsentService', () => {
     service = spectator.service;
 
     providers = flatten(
-      (spectator.inject(COOKIE_PROVIDERS) as any) as CookieProvider[][]
+      spectator.inject(COOKIE_PROVIDERS) as any as CookieProvider[][]
     );
 
     localStorage = spectator.inject(LOCAL_STORAGE_TOKEN);
@@ -449,7 +449,7 @@ describe('CookieConsentService (no previous stored settings)', () => {
     service = spectator.service;
 
     providers = flatten(
-      (spectator.inject(COOKIE_PROVIDERS) as any) as CookieProvider[][]
+      spectator.inject(COOKIE_PROVIDERS) as any as CookieProvider[][]
     );
   });
 
@@ -504,7 +504,7 @@ describe('CookieConsentService (previous rejected all)', () => {
     service = spectator.service;
 
     providers = flatten(
-      (spectator.inject(COOKIE_PROVIDERS) as any) as CookieProvider[][]
+      spectator.inject(COOKIE_PROVIDERS) as any as CookieProvider[][]
     );
   });
 
@@ -554,7 +554,7 @@ describe('CookieConsentService (with previous stored settings)', () => {
             'setItem',
             'getItem',
             'removeItem',
-          ]) as SpyObject<Storage>;
+          ]);
 
           const cookieEnablement = createPersistedCookieSettings({
             providers: flatten(provided),
@@ -580,7 +580,7 @@ describe('CookieConsentService (with previous stored settings)', () => {
     service = spectator.service;
 
     providers = flatten(
-      (spectator.inject(COOKIE_PROVIDERS) as any) as CookieProvider[][]
+      spectator.inject(COOKIE_PROVIDERS) as any as CookieProvider[][]
     );
   });
 

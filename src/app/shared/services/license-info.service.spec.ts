@@ -49,7 +49,7 @@ describe('LicenseInfoService', () => {
     (router.events as any) = EMPTY;
 
     scully = spectator.inject(ScullyRoutesService);
-    scully.getCurrent.mockReturnValue(EMPTY);
+    scully.getCurrent.andReturn(EMPTY);
 
     repository = spectator.inject(LicenseRepositoryService);
   });
@@ -64,7 +64,7 @@ describe('LicenseInfoService', () => {
         'should retrieve licenses from scully route',
         waitForAsync(() => {
           const scullyRoute = createPostAsScullyRoute();
-          scully.getCurrent.mockReturnValue(of(scullyRoute));
+          scully.getCurrent.andReturn(of(scullyRoute));
 
           service.activeRouteLicenses$.subscribe((licenses) => {
             expect(licenses).toEqual(scullyRoute.licenses);
@@ -154,9 +154,9 @@ describe('LicenseInfoService', () => {
                   },
                 ],
               });
-              scully.getCurrent.mockReturnValue(of(scullyRoute));
+              scully.getCurrent.andReturn(of(scullyRoute));
 
-              repository.getLicense.mockReturnValue(license);
+              repository.getLicense.andReturn(license);
 
               service.activeRouteLicenses$.subscribe((licenses) => {
                 expect(licenses).toHaveLength(1);
@@ -178,9 +178,9 @@ describe('LicenseInfoService', () => {
                   },
                 ],
               });
-              scully.getCurrent.mockReturnValue(of(scullyRoute));
+              scully.getCurrent.andReturn(of(scullyRoute));
 
-              repository.getLicense.mockReturnValue(null);
+              repository.getLicense.andReturn(null);
 
               service.activeRouteLicenses$.subscribe(
                 () => fail('should throw error'),
@@ -218,7 +218,7 @@ describe('LicenseInfoService', () => {
 
               (router.events as any) = of(event);
 
-              repository.getLicense.mockReturnValue(license);
+              repository.getLicense.andReturn(license);
 
               service.activeRouteLicenses$.subscribe((licenses) => {
                 expect(licenses).toHaveLength(1);
@@ -245,7 +245,7 @@ describe('LicenseInfoService', () => {
 
               (router.events as any) = of(event);
 
-              repository.getLicense.mockReturnValue(null);
+              repository.getLicense.andReturn(null);
 
               service.activeRouteLicenses$.subscribe(
                 () => fail('should throw error'),
@@ -274,7 +274,7 @@ describe('LicenseInfoService', () => {
                 globalLicenses: [{ ...license, [otherProperty]: null }],
               };
 
-              repository.getLicense.mockReturnValue(license);
+              repository.getLicense.andReturn(license);
 
               service.activeRouteLicenses$.subscribe((licenses) => {
                 expect(licenses).toHaveLength(1);
@@ -292,7 +292,7 @@ describe('LicenseInfoService', () => {
                 globalLicenses: [{ ...license, [property]: null }],
               };
 
-              repository.getLicense.mockReturnValue(null);
+              repository.getLicense.andReturn(null);
 
               service.activeRouteLicenses$.subscribe(
                 () => fail('should throw error'),

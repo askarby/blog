@@ -9,7 +9,6 @@ import {
   ActivatedRouteSnapshot,
   Router,
   RouterStateSnapshot,
-  UrlSegment,
 } from '@angular/router';
 import { of } from 'rxjs';
 import { hot } from 'jest-marbles';
@@ -69,7 +68,7 @@ describe('PostExistsGuard', () => {
   });
 
   it('should redirect to "404 page", when post for url can\'t found', () => {
-    router.parseUrl.mockImplementation((url) => createUrlTree(url));
+    router.parseUrl.andCallFake((url: string) => createUrlTree(url));
     route.url = createUrlSegments('/blog/post/wont-match-anything-url');
     scully.available$ = of([
       createPost({
