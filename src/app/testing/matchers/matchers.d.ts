@@ -1,11 +1,5 @@
 export {};
 
-type OwnMatcher<Params extends unknown[]> = (
-  this: jest.MatcherContext,
-  actual: unknown,
-  ...params: Params
-) => jest.CustomMatcherResult;
-
 declare global {
   namespace jest {
     interface Matchers<R, T> {
@@ -17,10 +11,10 @@ declare global {
     interface ExpectExtendMap {
       // Here, we're describing the call signature of our
       // matcher for the "expect.extend()" call.
-      toBeTrue: OwnMatcher<any>;
-      toBeFalse: OwnMatcher<any>;
-      toBeAnyOf: OwnMatcher<any>;
-      toStartWith: OwnMatcher<any>;
+      toBeTrue: CustomMatcher;
+      toBeFalse: CustomMatcher;
+      toBeAnyOf: CustomMatcher;
+      toStartWith: CustomMatcher;
     }
   }
 }
