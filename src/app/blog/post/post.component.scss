@@ -28,7 +28,8 @@ article {
   blockquote,
   code,
   ul,
-  ol {
+  ol,
+  table {
     max-width: 40rem;
     margin: 0 auto;
     padding: 0 0.5rem;
@@ -159,5 +160,17 @@ article {
 
   ul ul {
     margin-bottom: 0;
+  }
+
+  table {
+    th {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    th,
+    td {
+      padding-inline: 1rem;
+    }
   }
 }

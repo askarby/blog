@@ -1,6 +1,6 @@
 <a [routerLink]="post.route">
   <h1>{{ post.title }}</h1>
-  <p class="description tablets-plus">{{ post.description }}</p>
+  <p class="description tablets-plus">{{ post.introduction }}</p>
   <time>
     <span class="tablets-plus">{{
       post.published_date | date: "longDate"
