@@ -8,6 +8,7 @@ twitter_text: skarby.info a blog post on a new blog engine
 introduction: On writing a blog engine with Angular and Scully
 published: true
 published_date: 2021-08-13
+series: Angular and Scully
 licenses:
   - forItem: "post image"
     from: "pixabay"

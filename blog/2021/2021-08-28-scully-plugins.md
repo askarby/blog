@@ -8,6 +8,7 @@ twitter_text: skarby.info a blog post on scully plug-ins
 introduction: On using and writing custom scully plug-ins
 published: true
 published_date: 2021-08-28
+series: Angular and Scully
 licenses:
   - forItem: "post image"
     from: "pixabay"
@@ -22,11 +23,8 @@ references:
     url: "https://sharp.pixelplumbing.com/"
 ---
 
-This post is **part 2** of my series of making my blog software (using [Angular][angular] and [Scully][scully]), you can read the
-first part [here](/blog/post/2021/2021-08-13-new-blog-engine)!
-
 First and foremost, the architecture of [Scully][scully] is awesome! It's extensible by nature, and it's very much a matter of
-the entire Scully eco-system being implemented in plug-ins. But we're getting way ahead of ourselves, let's rewind a bit!
+the entire Scully ecosystem being implemented in plug-ins. But we're getting way ahead of ourselves, let's rewind a bit!
 
 The way that [Scully][scully] works is by looking at the [Angular][angular] routes provided by your application, then traversing
 them and rendering the routes using [Puppeteer][puppeteer] (an API to render pages, etc. using Chrome's devtools protocol). The
