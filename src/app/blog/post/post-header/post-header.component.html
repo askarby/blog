@@ -9,7 +9,23 @@
       {{ post.readingTime | number: "1.0-0" }} min to read
     </div>
   </section>
+
   <h1 [id]="titleId">{{ post.title }}</h1>
   <p class="description">{{ post.description }}</p>
   <img [alt]="post.title" [src]="post.image" />
+
+  <section *ngIf="post.series as series" class="series">
+    <p>
+      This post is part of a series named "{{ series.title }}", you can find the
+      <ng-container *ngIf="series.previous"
+        >previous part <a [href]="series.previous.route">here</a></ng-container
+      >
+      <ng-container *ngIf="series.previous && series.next"
+        >, and the</ng-container
+      >
+      <ng-container *ngIf="series.next"
+        >next part <a [href]="series.next.route">here</a></ng-container
+      >
+    </p>
+  </section>
 </div>

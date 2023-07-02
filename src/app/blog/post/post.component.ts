@@ -34,7 +34,9 @@ export class PostComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit(): void {
-    this.current$ = this.scully.getCurrent().pipe(mapToPost());
+    this.current$ = this.scully
+      .getCurrent()
+      .pipe(mapToPost(this.scully.available$));
   }
 
   ngAfterViewChecked(): void {

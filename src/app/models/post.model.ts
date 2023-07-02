@@ -2,6 +2,7 @@
 import { ScullyRoute } from '@scullyio/ng-lib';
 import { LicenseItem } from './license-info.model';
 import { Reference } from './reference.model';
+import { Series } from './series.model';
 
 export interface TocEntry {
   /**
@@ -90,4 +91,9 @@ export interface Post extends ScullyRoute {
    * Number of minutes the post takes to read.
    */
   readingTime: number;
+
+  /**
+   * Information about the series that this post belongs to, if any
+   */
+  series?: Series;
 }

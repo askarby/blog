@@ -11,7 +11,7 @@ import {
   ScullyRoute,
   ScullyRoutesService,
 } from '@scullyio/ng-lib';
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { PostFooterComponent } from './post-footer/post-footer.component';
 import { PostHeaderComponent } from './post-header/post-header.component';
 import { TableOfContentsComponent } from './table-of-contents/table-of-contents.component';
@@ -39,6 +39,7 @@ describe('PostComponent', () => {
         useValue: createSpyObject(ScullyRoutesService, {
           getCurrent: (): Observable<ScullyRoute> =>
             currentRoute.asObservable(),
+          available$: of([]),
         }),
       },
       {
